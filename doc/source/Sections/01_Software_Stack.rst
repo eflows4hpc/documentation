@@ -2,7 +2,8 @@
 Software Stack
 ===============================
 
-This section is intended to introduce the eFlows4HPC software stack the location of the source code and the installation and usage guide.
+This section is intended to introduce the eFlows4HPC software stack the location
+of the source code and the installation and usage guide.
 
 .. toctree::
     :maxdepth: 2
