@@ -13,9 +13,9 @@ or an arbitrary binary defined by the user.
 
 Configuration File
 ------------------
+A configuration file must have two mandatory keys; `type` and `properties`. 'Type' is needed to specify exactly what type of the program user wants to execute (e.g: "mpi",
+"binary"). And the `properties` will contain the invocation parameters such as binary path, number of processes, etc.
 
-A configuration file must have two mandatory keys; `type` and `properties`. `Type` is needed to specify exactly what type of the program user wants to execute (e.g: "mpi",
- "binary"). And the `properties` will contain the invocation parameters such as binary path, number of processes, etc.
 
 Examples
 --------
@@ -24,6 +24,7 @@ As an example, the following code snippets show how an MPI application execution
 decorator on top of the task function and provide a 'config_file' parameters where the configuration details are defined:
 
 .. code-block:: python
+
     from pycompss.api.software import software
     from pycompss.api.task import task
 
@@ -32,8 +33,8 @@ decorator on top of the task function and provide a 'config_file' parameters whe
     def task_python_mpi():
          pass
 
-And inside the configuration file ("mpi_config.json" in this example), type of the program, and its properties are explicitly set. For example, if the user wants to
-run an MPI job with two processes using 'mpirun' command, the configuration file should look like as follows:
+And inside the configuration file type of the program, and its properties are explicitly set. For example, if the user wants to run an MPI job with two processes using
+'mpirun' command, the configuration file (**"mpi_config.json"** in this example) should look like as follows:
 
 .. code-block:: JSON
 
@@ -137,6 +138,7 @@ Call to the task function:
 
 
 .. warning::
+
     Limitation: Currently it's not possible to run MPI jobs within containers.
 
 
