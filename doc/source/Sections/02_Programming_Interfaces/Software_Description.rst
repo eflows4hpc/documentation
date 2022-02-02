@@ -21,7 +21,7 @@ Examples
 --------
 
 As an example, the following code snippets show how an MPI application execution can be defined using the @software decorator. Users only have to add the software
-decorator on top of the task function and provide a 'config_file' parameters where the configuration details are defined:
+decorator on top of the task function, and provide a 'config_file' parameter where the configuration details are defined:
 
 .. code-block:: python
 
@@ -83,9 +83,9 @@ Configuration file ("mpi_w_params.json"):
         "working_dir": "/tmp/{{work_dir}}",
         "params": "-d {{param_d}}"
     },
-	"constraints":{
-		"computing_units": 2
-	}
+    "constraints":{
+        "computing_units": 2
+    }
   }
 
 Call to the task function:
@@ -134,12 +134,14 @@ Call to the task function:
 
 .. code-block:: python
 
-    task_container('some_file.txt', 'error')
+   task_container('some_file.txt', 'error')
+
+
 
 
 .. warning::
 
-    Limitation: Currently it's not possible to run MPI jobs within containers.
+   Limitation: Currently it's not possible to run MPI jobs within containers.
 
 
 For more detailed information about the @software decorator of PyCOMPSs please see the `documentation`_.
