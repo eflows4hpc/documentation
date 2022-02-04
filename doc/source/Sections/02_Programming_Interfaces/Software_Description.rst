@@ -1,20 +1,18 @@
 Software Invocation Description
 ===============================
 
-The idea behind the 'Software' invocation description is to define a common way in which multiple components
-of workflows can be invoked. The definition is composed of a decorator and a configuration file with the necessary parameters.
+The idea behind the 'Software' invocation description is to define a common way in which multiple software components can be integrated in single workflow. The definition is composed of a decorator and a configuration file with the necessary parameters.
 
 Software decorator
 ------------------
-@Software decorator is designed to integrate executions of external HPC or DA programs in a single workflow. When a 'task' with the `@software` decorator is called,
-an external program is executed respecting the configuration defined in its configuration file. This external program can be an 'mpi' job, an already-installed software,
-or an arbitrary binary defined by the user.
+@Software decorator is used to indicate that a certain python function represents the invocation of and external HPC or DA programs in a single workflow. This decorator must be combined with 'task' decorator to indiate de directionality of the parameters and allow the runtime to detect the dependencies with the rest of workflow tasks.
+When a `taskwith` with the `@software` decorator is called, an external program is executed respecting the configuration defined in its configuration file. The goal of this decorator is to describe the execution of whatever external programs included in a workflow form simple binary executable to complex MPI applications.
 
 
 Configuration File
 ------------------
 A configuration file must have two mandatory keys; `type` and `properties`. 'Type' is needed to specify exactly what type of the program user wants to execute (e.g: "mpi",
-"binary"). And the `properties` will contain the invocation parameters such as binary path, number of processes, etc.
+"binary"). And the `properties` will contain the customizable properties of a type of execution such as binary path, number of processes, etc.
 
 
 Examples
@@ -56,7 +54,8 @@ Finally, call to the task function:
 
 It's also possible to refer to task parameters from the configuration file. In this case, task parameters should be surrounded by curly braces. For example in the
 following example 'work_dir' and 'param_d' parameters of the python task are used in the 'working_dir' and 'params' strings respectively ('params' strings are command
-line arguments to be passed to the 'binary'). Moreover, number of computing units is added as a constraint:
+line arguments to be passed to the 'binary'). Moreover, number of computing units is added as a constraint, to indicate that every MPI proceses will requirements
+:
 
 Task definition:
 
