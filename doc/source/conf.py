@@ -165,7 +165,7 @@ html_scaled_image_link = False
 
 # -- Options for LaTeX output ---------------------------------------------
 latex_engine = 'pdflatex'
-latex_additional_files = ['./Logos/.jpg']
+latex_additional_files = ['./Logos/.png']
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
@@ -296,10 +296,6 @@ latex_elements = {
 
             \Large Eflows4HPC Consortium
             \vspace{0mm}
-            \begin{figure}[!h]
-             \centering
-             \includegraphics[scale=0.3]{bsc_logo.jpg}
-            \end{figure}
 
             \vspace*{20mm}
             \large  Last updated : \MonthYearFormat\today
