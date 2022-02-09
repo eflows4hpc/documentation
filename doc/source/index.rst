@@ -2,12 +2,12 @@ eFlows4 HPC Software Stack Documentation
 ========================================
 
 .. figure:: /Logos/Color_Full.png
-   :width: 30.0%
+   :width: 40.0%
    :align: center
    :target: http://www.eflows4hpc.eu
 
 
-This page is under construction. First version of this page will be available at the end of February 2022.
+Welcome to the documentation page of the eFlows4HPC Software Stack.
 
 .. toctree::
    :maxdepth: 1

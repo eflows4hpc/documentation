@@ -18,11 +18,11 @@ the public key. You will never get or even see the private key.
 Add this public key as an authorized key for your HPC user account in order to let transfer data to your user account and run
 PyCOMPS jobs for you in an automated way.
 
-Then you can use the `list available workflows endpoint <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#list-available-workflows>`
+Then you can use the `list available workflows endpoint <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#list-available-workflows>`_
 to get the list of endpoints you can access.
 
-You can then `trigger a workflow execution <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#trigger-a-workflow-execution>`.
+You can then `trigger a workflow execution <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#trigger-a-workflow-execution>`_.
 
-And finally `monitor the workflow execution <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#monitor-a-workflow-execution>`.
+And finally `monitor the workflow execution <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#monitor-a-workflow-execution>`_.
 
 .. _documentation: https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md

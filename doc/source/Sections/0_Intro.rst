@@ -1,13 +1,11 @@
-===============
-eFlows4HPC
-===============
+===================
+eFlows4HPC Overview
+===================
 .. _fig_overview:
 .. figure:: Figures/overview.png
     :figwidth: 50 %
     :alt: eflows4HPC overview
     :align: center
-
-    eFlows4HPC Project overview
 
 eFlows4HPC aims at designing and implementing a European workflow platform that enables the design of complex applications that integrate HPC processes, data analytics and artificial intelligence, making use of the HPC resources in an easy, efficient and responsible way as well as enabling the accessibility and reusability of applications to reduce the time to solution.
 
@@ -24,3 +22,14 @@ More information:
 - Project website: https://www.eflows4hpc.eu
 
 - Github organization: https://github.com/eflows4hpc
+
+----------------
+Acknowledgements
+----------------
+
+The eFlows4HPC project is founded by the European High-Performance Computing Joint Undertaking (JU) under grant agreement No 955558. The JU receives support from the European Union’s Horizon 2020 research and innovation programme and Spain, Germany, France, Italy, Poland, Switzerland, Norway
+
+.. figure:: Figures/funding.png
+    :figwidth: 70 %
+    :alt: Funding Agencies
+    :align: center
