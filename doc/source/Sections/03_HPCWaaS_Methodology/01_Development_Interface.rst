@@ -20,7 +20,7 @@ If you are using the instance on Juelich cloud, this is already done and you can
 You should first move to the ``Catalog`` tab and then the ``Manage archives`` tab, finally click on ``Git import`` to add components.
 
 .. figure:: Figures/catalog.png
-    :figwidth: 50 %
+    :figwidth: 75 %
     :alt: Alien4Cloud catalog
     :align: center
 
@@ -30,7 +30,7 @@ You should have at least the three repositories defined as shown in :numref:`fig
 
 .. _fig_alien4cloud_git_catalog:
 .. figure:: Figures/git-catalog.png
-    :figwidth: 50 %
+    :figwidth: 75 %
     :alt: Alien4Cloud git catalog
     :align: center
 
@@ -55,7 +55,7 @@ Creating an application based on the minimal workflow example
 Move to the ``Applications`` tab and click on ``New application``.
 
 .. figure:: Figures/applications.png
-    :figwidth: 50 %
+    :figwidth: 75 %
     :alt: Alien4Cloud applications list
     :align: center
 
@@ -65,7 +65,7 @@ Then create a new application based on the minimal workflow template as shown in
 
 .. _fig_alien4cloud_app_create:
 .. figure:: Figures/new-application.png
-    :figwidth: 50 %
+    :figwidth: 75 %
     :alt: Alien4Cloud create a new application
     :align: center
 
@@ -74,7 +74,7 @@ Then create a new application based on the minimal workflow template as shown in
 Edit the topology to fit your needs:
 
 .. figure:: Figures/topology.png
-    :figwidth: 50 %
+    :figwidth: 75 %
     :alt: Alien4Cloud minimal workflow topology
     :align: center
 
@@ -83,7 +83,7 @@ Edit the topology to fit your needs:
 Then click on ``Deploy`` to deploy the application.
 
 .. figure:: Figures/deploy.png
-    :figwidth: 50 %
+    :figwidth: 75 %
     :alt: Alien4Cloud deploy an application
     :align: center
 
@@ -96,3 +96,10 @@ In order for the WaaS API to know which workflow to allow users to use, you shou
 Move to your application main panel and under the ``Tags`` section add a tag named ``hpcwaas-workflows``.
 The tag value should be a coma-separated list of workflow names that could be called through the HPC WaaS API.
 In the minimal workflow example, this tag value should be ``exec_job``.
+
+.. figure:: Figures/application-panel.png
+    :figwidth: 75 %
+    :alt: Alien4Cloud application panel with tags
+    :align: center
+
+    Alien4Cloud add tags to an application
