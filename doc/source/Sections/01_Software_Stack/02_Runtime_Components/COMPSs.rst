@@ -5,12 +5,15 @@ PyCOMPSs
 Its model abstracts the application from the underlying distributed infrastructure, allowing it to be portable between
 infrastructures with diverse characteristics. PyCOMPSs is the Python binding of COMPSs.
 
-When developing with PyCOMPSs, distribution of the data, task scheduling, data dependency between tasks, and fault tolerance issues are hidden from the user
+When developing with PyCOMPSs, distribution of the data, task scheduling, data dependency between tasks, and fault tolerance issues are hidden to the user
 and are the responsibilities of the COMPSs Runtime. The COMPSs Runtime is also able to react to task failures and exceptions in order to adapt the
 behaviour accordingly.
 
 Programs written in a sequential way can be converted to PyCOMPSs applications simply by adding 'task' decorators
-to the functions that must be executed in parallel. `These sample applications`_ show how to tag tasks to-be-parallelized.
+to the functions that can be executed in parallel with other tasks. `These sample applications`_ show how to tag tasks to-be-parallelized.
+
+Tasks in PyCOMPSs can be of different granularity, from fine grain tasks with short duration to invocation to external binaries
+(including MPI applications) that last longer time. This flexibility enables PyCOMPSs to support the development on workflows with heterogeneous task types.
 
 Some useful links for more detailed information:
 
