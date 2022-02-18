@@ -9,7 +9,8 @@ libraries with a strong focus on single-node performance, and traditional high-p
 Heat's generic Python-first programming interface integrates seamlessly with the existing data science ecosystem 
 and makes it as effortless as using numpy to write scalable scientific and data science applications.
 
-HeAT allows you to tackle your actual Big Data challenges that go beyond the computational and memory needs of your laptop and desktop.
+HeAT allows you to tackle your actual Big Data challenges that go beyond the computational and memory needs of your 
+laptop and desktop.
 
 
 Installation 
