@@ -1,13 +1,14 @@
 eFlows4 HPC Software Stack Documentation
 ========================================
 
-.. figure:: /Logos/Color_Full.png
-   :width: 40.0%
+.. figure:: /Logos/Color_Full.svg
+   :width: 60.0%
    :align: center
    :target: http://www.eflows4hpc.eu
 
 
 Welcome to the documentation page of the eFlows4HPC Software Stack.
+It is organized in the following sections:
 
 .. toctree::
    :maxdepth: 1
