@@ -2,12 +2,12 @@
 Usage Example
 =============
 
-This section describe a usage example about how to implement deploy and execute
-a workflow using the eFlows4HPC Software Stack. This example workflow consist of
+This section describe a minimal usage example on how to implement, deploy and execute
+a workflow using the eFlows4HPC Software Stack. This example workflow consists of
 two main steps:
 
-  - a data logistic pipeline, where the input data is moved from a EU Data repository to the parallel file system of a supercomputer where it will be processed in the second step.
-  - a PyCOMPSs workflow, where an wordcount computation is parallelised across the nodes of an HPC facility using a task-based programming model .
+  - a data logistic pipeline, where the input data is moved from an EU Data repository to the parallel file system of a supercomputer where it will be processed in the second step.
+  - a PyCOMPSs workflow, where an wordcount computation is parallelized across the nodes of an HPC facility using a task-based programming model.
 
 The deployment and execution of these two steps are described as a TOSCA application
 using the HPCWaaS methodology.

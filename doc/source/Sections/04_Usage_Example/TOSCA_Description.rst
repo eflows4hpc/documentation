@@ -5,16 +5,16 @@ To support the integration of this usage example we defined a set of new TOSCA c
 
 First we defined new types for the Data Logistics Service and PyCOMPSs workflows.
 Then we defined a TOSCA topology template called the "minimal workflow" that compose these two previous components into
-a TOSCA application that allow to run workflows that first transfer data from the Data Catalog to an HPC cluster and then
-run an PyCOMPSs workflow.
+a TOSCA application that allows to run workflows that first transfer data from the Data Catalog to an HPC cluster and then
+run a PyCOMPSs workflow.
 
 Data Logistics Service TOSCA component
 --------------------------------------
 
-The source code of this component is available in the `dls-tosca github repository <https://github.com/eflows4hpc/dls-tosca>` in the
+The source code of this component is available in the `dls-tosca github repository <https://github.com/eflows4hpc/dls-tosca>`_ in the
 eFlows4HPC organization.
 
-This component interact with  the Airflow RESTful API to trigger and monitor the execution of an airflow pipeline.
+This component interacts with  the Airflow RESTful API to trigger and monitor the execution of an airflow pipeline.
 It was designed to be as generic as possible in order to support different kind of pipelines.
 
 :numref:`tosca-dls-type.yaml` is a simplified (for the sake of clarity) version of the TOSCA type definition of the
@@ -64,13 +64,13 @@ PyCOMPSs TOSCA component
 ------------------------
 
 The source code of this component is available in the
-`pycomps-tosca github repository <https://github.com/eflows4hpc/pycomps-tosca` in the eFlows4HPC organization.
+`pycomps-tosca github repository <https://github.com/eflows4hpc/pycomps-tosca>`_ in the eFlows4HPC organization.
 
 This component connects to an HPC cluster using SSH and then run and monitor a PyCOMPSs workflow.
 Again, this component was designed to be as generic as possible in order to support different kind of workflows.
 
 :numref:`tosca-pycomps-type.yaml` is a simplified (for the sake of clarity) version of the TOSCA type definition of the
-Data Logistics Service that shows the configurable properties that can be set for this component.
+PyCOMPSs workflow that shows the configurable properties that can be set for this component.
 
 .. code-block:: yaml
     :name: tosca-pycomps-type.yaml
@@ -83,7 +83,7 @@ Data Logistics Service that shows the configurable properties that can be set fo
       properties:
         pycomps_endpoint:
           type: string
-          description: The endpoint of the pycomps server
+          description: The endpoint of the PyCOMPSs server
           required: true
         num_nodes:
           type: integer
@@ -107,7 +107,7 @@ Minimal workflow TOSCA topology template
 ----------------------------------------
 
 The source code of this template is available in the
-`minimal-workflow github repository <https://github.com/eflows4hpc/minimal-workflow>` in the eFlows4HPC organization.
+`minimal-workflow github repository <https://github.com/eflows4hpc/minimal-workflow>`_ in the eFlows4HPC organization.
 
 This topology template composes the DLS and PyCOMPSs components into
 a TOSCA application that allows to run a workflow which first transfer a data from the Data Catalog to an HPC cluster and then
