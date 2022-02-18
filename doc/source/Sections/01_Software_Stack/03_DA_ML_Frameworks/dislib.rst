@@ -5,7 +5,7 @@ The `Distributed Computing Library`_ (dislib) is a library that provides various
 It has been implemented on top of `PyCOMPSs`_, with the goal of facilitating the execution of big data
 analytics algorithms in distributed platforms, such as clusters, clouds, and supercomputers.
 
-Dislib comes with two primary programming interfaces. an API to manage data in a distributed way and an estimator-based interface to work with different
+Dislib comes with two primary programming interfaces: an API to manage data in a distributed way and an estimator-based interface to work with different
 machine learning models.
 
 Dislib main data structure is the distributed array (ds-array) that enables to distribute the data sets in multiple nodes of a computing infrastructure. The
