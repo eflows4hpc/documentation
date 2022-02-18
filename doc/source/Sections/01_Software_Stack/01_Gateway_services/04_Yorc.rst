@@ -3,9 +3,9 @@ Ystia Orchestrator
 
 Yorc is a TOSCA_ orchestration engine. It is designed to execute workflows on hybrid (Cloud / HPC / CaaS / ...) infrastructures.
 
-In the context of eflows4hpc, Yorc will be driven by Alien4Cloud. Developers and end users do not directly interact with Yorc.
+In the context of eFlows4HPC, Yorc will be driven by Alien4Cloud. Developers and end users do not directly interact with Yorc.
 
-Yorc is an open source project developed by Atos. The source code can be found in project repository_ and the documentation_
+Yorc is an open source project developed by Atos. The source code can be found in the project repository_ and the documentation_
 is available online.
 
 

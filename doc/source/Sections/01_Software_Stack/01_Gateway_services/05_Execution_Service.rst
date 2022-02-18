@@ -6,7 +6,7 @@ This component is developed specifically for the eFlows4HPC project.
 
 This service will interact with Alien4Cloud list and trigger applicative workflows and with Hashicorp Vault to manage users access credentials.
 
-The source code can be found in project repository_.
+The source code can be found in the project repository_.
 
 Installation
 ------------
@@ -26,7 +26,7 @@ Please refer to the help of the hpcwaas-api container to know how to run it.
 
 .. code:: bash
 
-    docker run ghcr.io/eflows4hpc/hpcwaas-api:main /hpcwaas-api server --help
+    docker run ghcr.io/eflows4hpc/hpcwaas-api:main --help
 
 .. _repository: https://github.com/eflows4hpc/hpcwaas-api
 .. _registry: https://github.com/eflows4hpc/hpcwaas-api/pkgs/container/hpcwaas-api

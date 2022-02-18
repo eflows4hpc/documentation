@@ -9,16 +9,18 @@ Alien4Cloud & Yorc
 
 Please refer to the documentation of the Alien4Cloud & Yorc project for more information.
 
-A instance of Alien4Cloud and Yorc is available on Juelich cloud, ask to the project to have an access
+An instance of Alien4Cloud and Yorc is available on Juelich cloud, ask to the project to obtain access
 
 Importing required components into Alien4Cloud
 ##############################################
 
-Some TOSCA components and topologies templates need to be imported into Alien4Cloud.
+Some TOSCA components and topology templates need to be imported into Alien4Cloud.
 If you are using the instance on Juelich cloud, this is already done and you can move to the next paragraph.
 
-You should first move to the ``Catalog`` tab and then the ``Manage archives`` tab, finally click on ``Git import`` to add components.
+You should first move to the ``Catalog`` tab and then the ``Manage archives`` tab, finally click on ``Git import`` to add components
+as shown in :numref:`fig_alien4cloud_catalog`.
 
+.. _fig_alien4cloud_catalog:
 .. figure:: Figures/catalog.png
     :figwidth: 75 %
     :alt: Alien4Cloud catalog
@@ -52,8 +54,9 @@ Once done you can click on ``Import all``.
 Creating an application based on the minimal workflow example
 -------------------------------------------------------------
 
-Move to the ``Applications`` tab and click on ``New application``.
+Move to the ``Applications`` tab and click on ``New application``  as shown in :numref:`fig_alien4cloud_applications`.
 
+.. _fig_alien4cloud_applications:
 .. figure:: Figures/applications.png
     :figwidth: 75 %
     :alt: Alien4Cloud applications list
@@ -71,8 +74,9 @@ Then create a new application based on the minimal workflow template as shown in
 
     Alien4Cloud create a template based application
 
-Edit the topology to fit your needs:
+Edit the topology to fit your needs as shown in :numref:`fig_alien4cloud_topology`.
 
+.. _fig_alien4cloud_topology:
 .. figure:: Figures/topology.png
     :figwidth: 75 %
     :alt: Alien4Cloud minimal workflow topology
@@ -80,8 +84,9 @@ Edit the topology to fit your needs:
 
     Alien4Cloud minimal workflow topology
 
-Then click on ``Deploy`` to deploy the application.
+Then click on ``Deploy`` to deploy the application as shown in :numref:`fig_alien4cloud_deploy`.
 
+.. _fig_alien4cloud_deploy:
 .. figure:: Figures/deploy.png
     :figwidth: 75 %
     :alt: Alien4Cloud deploy an application
@@ -89,14 +94,15 @@ Then click on ``Deploy`` to deploy the application.
 
     Alien4Cloud deploy an application
 
-Make your workflow available to end-users using the WaaS API
-------------------------------------------------------------
+Make your workflow available to end-users using the HPCWaaS API
+---------------------------------------------------------------
 
-In order for the WaaS API to know which workflow to allow users to use, you should add a specific tag to your Alien4Cloud application.
-Move to your application main panel and under the ``Tags`` section add a tag named ``hpcwaas-workflows``.
-The tag value should be a coma-separated list of workflow names that could be called through the HPC WaaS API.
+In order for the HPCWaaS API to know which workflow to allow users to use, you should add a specific tag to your Alien4Cloud application.
+Move to your application main panel and under the ``Tags`` section add a tag named ``hpcwaas-workflows``  as shown in :numref:`fig_alien4cloud_application_panel`.
+The tag value should be a coma-separated list of workflow names that could be called through the HPC HPCWaaS API.
 In the minimal workflow example, this tag value should be ``exec_job``.
 
+.. _fig_alien4cloud_application_panel:
 .. figure:: Figures/application-panel.png
     :figwidth: 75 %
     :alt: Alien4Cloud application panel with tags
