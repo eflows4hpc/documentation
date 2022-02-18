@@ -102,7 +102,7 @@ numfig_format = {'figure':'Figure %s',
                  'code-block':'Code %s',
                  'section':'Section %s'}
 html_permalinks = False  # Disabled permalinks
-html_logo = './Logos/icono_color.png'
+html_logo = './Logos/icono_linial.png'
 html_show_sourcelink = False
 html_show_copyright = True
 html_show_sphinx = True
@@ -165,7 +165,7 @@ html_scaled_image_link = False
 
 # -- Options for LaTeX output ---------------------------------------------
 latex_engine = 'pdflatex'
-latex_additional_files = ['./Logos/.png']
+latex_additional_files = ['./Logos/*']
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #

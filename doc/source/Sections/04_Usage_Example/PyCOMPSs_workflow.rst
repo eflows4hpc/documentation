@@ -4,8 +4,8 @@ PyCOMPSs is a task-based programming model which allow to define parallel workfl
 Those methods have to be annotated with the `@task` decorator to indicate the directionality of they parameters.
 
 :numref:`wordcount` shows how to program a PyCOMPSs workflow for counting the words in a folder. The code is similar to what a developer will write in a sequential python code.
-Two methods are defined in the application: the `wordcount` to count the words of a file; and the `merge_dicts` to merge the results of the separate `wordcounts.
-On top of these methods we have added the `@task` decorator to convert it to a PyCOMPSs task, indicating the directionality of the parameters and returns.
+Two methods are defined in the application: the `wordcount` to count the words of a file; and the `merge_dicts` to merge the results of the separate `wordcount` tasks.
+On top of these methods, we have added the `@task` decorator to convert it to a PyCOMPSs task, indicating the directionality of the parameters and returns.
 Based on these annotations, the COMPSs runtime will detect that all `wordcount` invocations are independent and the `merge_dicts` ones will depend to the `wordcount` task
 of the same iteration and the `merge_dicts` of the previous one.
 
@@ -73,4 +73,4 @@ of the same iteration and the `merge_dicts` of the previous one.
         pprint(result)
 
 
-A part from python methods, developers can integrate executions of other software in PyCOMPSs workflows by usign the @software decorator described in the `Software invocation description <../02_Programming_Interfaces/Software_Description.rst>`_ section.
+A part from python methods, developers can integrate executions of other software in PyCOMPSs workflows by means of the `@software` decorator described in the `Software invocation description <../02_Programming_Interfaces/Software_Description.rst>`_ section.
