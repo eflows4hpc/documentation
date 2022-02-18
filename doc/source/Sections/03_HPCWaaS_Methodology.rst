@@ -3,21 +3,12 @@ HPCWaaS Methodology
 ======================
 
 The eFlows4HPC proposes the HPC Workflow as a Service (HPCWaaS) methodology which tries to apply the usage model of the Functions
-<<<<<<< HEAD
-as a Service in Cloud environments to the workflows for HPC systems. In this model two main roles are identified.
-From one side, the function developer which is in charge of developing and registering the function in the FaaS platform,
-which transparently deploys de function in the cloud infrastructure. On the other side, the final user executes the deployed
-function using a REST API. In the case of running workflows in HPC systems, we can find a similar roles. First, we can find
-the workflow developer, which is charge of developing and deploying the workflow in the computing infrastructure, and the
-users' communities which are usually scientists who want to execute the workflow and collect their results to advance
-=======
 as a Service (FaaS) in Cloud environments to the workflows for HPC systems. In this model, two main roles are identified.
 From one side, the function developer is in charge of developing and registering the function in the FaaS platform,
 which transparently deploys the function in the cloud infrastructure. On the other side, the final user executes the deployed
 function using a REST API. In the case of running workflows in HPC systems, we can find  similar roles. First, we can find
 the workflow developer, which is charge of developing and deploying the workflow in the computing infrastructure, and the
 users' communities which are usually scientist who want to execute the workflow and collect their results to advance
->>>>>>> feb416e...  fixes for review
 in their scientific goals.
 
 .. _fig_hpcwaas:
