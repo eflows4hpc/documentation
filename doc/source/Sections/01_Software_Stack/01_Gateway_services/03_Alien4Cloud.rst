@@ -11,7 +11,7 @@ The HPCWaaS API will in turn interact with Alien4Cloud REST API to execute the w
 
 Alien4Cloud relies on the Yorc orchestration engine to actually execute the workflows.
 
-Alien4Cloud is an open source project developed by Atos. The source code can be found in th
+Alien4Cloud is an open source project developed by Atos. The source code can be found in the
 project repository_ and the documentation_ is available online.
 
 
