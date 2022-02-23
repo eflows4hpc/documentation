@@ -7,7 +7,9 @@ The main idea behind ParSoDA is to simplify the creation of data analysis applic
 
 Source code
 -----------
-The source code of ParSoDA is available here: https://github.com/SCAlabUnical/ParSoDA
+The source code of ParSoDA is available `here`_.
+
+.. _here: https://github.com/SCAlabUnical/ParSoDA
 
 The current version of the library (v. 1.3.0 dated October 25, 2018) contains more than forty predefined functions organized in seven packages, corresponding to the seven ParSoDA steps.
 
@@ -25,7 +27,7 @@ The current version of ParSoDA has been tested with Hadoop 2.7.4, but we are wor
 
 On the ParSoDA project available on GitHub, you can find a dedicated branch containing a docker-compose file that can be used to quickly deploy a Hadoop cluster with only 1 node, which can be used to test ParSoDA applications.
 
-1) Clone the master branch of the `ParsoDA’s project from GitHub`_::
+1) Clone the master branch of the `ParSoDA’s project from GitHub`_::
 
     git clone --branch master https://github.com/SCAlabUnical/ParSoDA.git
 
@@ -47,8 +49,13 @@ On the ParSoDA project available on GitHub, you can find a dedicated branch cont
     mvn package.
 
 The library code has been organized into packages, which follow the 7 main steps that compose the execution flow of ParSoDA: acquisition, filtering, mapping, reduction, partitioning, analysis, and visualization.
+It is organized in packages among which we find the followings:
 
-There is also a package named “*app*” that contains some runnable example of data analysis applications based on ParSoDA. In addition, the package “*common*” contains the core classes of ParSoDA, including data models, intefaces, abstract classes, and so on. The first package “*acquisition*” contains the classes of some data crawlers that can be used for collecting data from social media platforms. Currently, it contains 2 crawlers for social media platforms (i.e., Twitter and Flickr), plus a dummy crawler (called *FileReaderCrawler*) that allow to load data from local filesystem or HDFS filesystem.
+- The package “*app*” contains some runnable example of data analysis applications based on ParSoDA;
 
-As a general setting, all the ParSoDA library is organized according to the following approach: INTERFACE --> ABSTRACT CLASS --> CONCRETE CLASS. Thus, ParSoDA provides some ready-to-use concrete classes, but at the same time it enables developers to create their own functions. This means, for example, that a specific data crawler could be developed to acquire data from a different file system or data storage, such as Amazon AWS S3, NoSQL Databases, and so on.
+- The package “*common*” contains the core classes of ParSoDA, including data models, intefaces, abstract classes, and so on;
+
+- The package “*acquisition*” contains the classes of some data crawlers that can be used for collecting data from social media platforms. Currently, it contains 2 crawlers for social media platforms (i.e., Twitter and Flickr), plus a dummy crawler (called *FileReaderCrawler*) that allow to load data from local filesystem or HDFS filesystem;
+
+- All other packages contains some pre-built functions for each corresponding block of a ParSoDA application.
 
