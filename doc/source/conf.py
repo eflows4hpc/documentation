@@ -106,7 +106,7 @@ html_logo = './Logos/icono_linial.png'
 html_favicon = './Logos/icono_color.png'
 html_show_sourcelink = False
 html_show_copyright = False
-html_show_sphinx = False 
+html_show_sphinx = True 
 nitpicky = True
 latex_logo = './Logos/Color.png'
 
