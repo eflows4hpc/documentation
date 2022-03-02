@@ -3,7 +3,7 @@ PyCOMPSs Workflow
 PyCOMPSs is a task-based programming model which allow to define parallel workflows as simple sequential python scripts. To implement a PyCOMPSs application, developers has to identify what parts of an application are the candidates to be a task. They are usually python methods with a certain computation granularity (larger than hundred milisecons) that can potentially run concurrently with other parts of the application.
 Those methods have to be annotated with the `@task` decorator to indicate the directionality of they parameters.
 
-:numref:`wordcount` shows how to program a PyCOMPSs workflow for counting the words in a folder. The code is similar to what a developer will write in a sequential python code.
+:numref:`wordcount` shows how to program a PyCOMPSs workflow for counting the words in a folder. It can be found in the `application repository <https://github.com/bsc-wdc/apps>`_. The code is similar to what a developer will write in a sequential python code.
 Two methods are defined in the application: the `wordcount` to count the words of a file; and the `merge_dicts` to merge the results of the separate `wordcount` tasks.
 On top of these methods, we have added the `@task` decorator to convert it to a PyCOMPSs task, indicating the directionality of the parameters and returns.
 Based on these annotations, the COMPSs runtime will detect that all `wordcount` invocations are independent and the `merge_dicts` ones will depend to the `wordcount` task

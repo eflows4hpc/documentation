@@ -103,9 +103,10 @@ numfig_format = {'figure':'Figure %s',
                  'section':'Section %s'}
 html_permalinks = False  # Disabled permalinks
 html_logo = './Logos/icono_linial.png'
+html_favicon = './Logos/icono_color.png'
 html_show_sourcelink = False
-html_show_copyright = True
-html_show_sphinx = True
+html_show_copyright = False
+html_show_sphinx = False 
 nitpicky = True
 latex_logo = './Logos/Color.png'
 
@@ -288,7 +289,7 @@ latex_elements = {
             \vspace{0mm}
             \begin{figure}[!h]
              \centering
-             \includegraphics[scale=0.4]{Color_full.png}
+             \includegraphics[scale=1]{Color_Full.png}
             \end{figure}
 
             \vspace{0mm}
