@@ -12,6 +12,8 @@ The framework is composed by different software components. The source code for 
 
 The installation guide is available in the `documentation <https://ophidia.cmcc.it/documentation/admin/index.html>`_.
 
+Ophidia can also be installed through the `Spack package manager <https://spack.readthedocs.io/en/latest/>`_.
+
 For the client side, Ophidia also provides the Python bindings, called `PyOphidia <https://pypi.org/project/PyOphidia/>`_. To install PyOphidia:
 
 ::
