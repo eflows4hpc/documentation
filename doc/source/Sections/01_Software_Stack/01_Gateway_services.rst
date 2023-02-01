@@ -10,3 +10,5 @@ Gateway Services
     01_Gateway_services/04_Yorc
     01_Gateway_services/05_Execution_Service
     01_Gateway_services/06_Container_Image_Creation
+    01_Gateway_services/07_Software_Catalog
+    01_Gateway_services/08_Workflow_Registry
