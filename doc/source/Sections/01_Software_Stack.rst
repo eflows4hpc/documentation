@@ -7,7 +7,7 @@ eFlows4HPC software stack integrates different components to provide an overall 
 .. Comment: Once D1.1 is available on-line, we could add a link to the deliverable
 
 .. _fig_stack_by_functionality:
-.. figure:: 01_Software_Stack/Figures/current_release.png
+.. figure:: 01_Software_Stack/Figures/current_release_y2.png
     :figwidth: 50 %
     :alt: Software Stack by functionality
     :align: center
@@ -18,7 +18,7 @@ The different components of the stack can be also are grouped according to their
 The Runtime components are deployed in the computing infrastructure to perform the parallel execution and data management of the workflow inside the assigned computing nodes. Finally, the HPDA/ML Frameworks are the software components which are used inside the workflows to implement the Machine Learning and Data Analytic algorithms.
 
 .. _fig_stack_by_deployment:
-.. figure:: 01_Software_Stack/Figures/software_deployment.png
+.. figure:: 01_Software_Stack/Figures/software_deployment_y2.png
     :figwidth: 40 %
     :alt: Software Stack by deployment
     :align: center
