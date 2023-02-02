@@ -169,3 +169,9 @@ cases each data transformation with "is_workflow=False" will take place in a dif
         run_simulation(first_file, second_file)
         ...
 
+
+
+For more detailed information about the @dt decorator of PyCOMPSs please see the `documentation`_.
+
+.. _documentation: https://compss.readthedocs.io/en/stable/Sections/02_App_Development/02_Python/01_1_Task_definition/Sections/10_Data_Transformation.html
+

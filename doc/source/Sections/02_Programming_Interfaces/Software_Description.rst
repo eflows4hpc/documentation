@@ -146,4 +146,4 @@ Call to the task function:
 For more detailed information about the @software decorator of PyCOMPSs please see the `documentation`_.
 
 
-.. _documentation: https://compss-doc.readthedocs.io/en/stable/Sections/02_App_Development/02_Python/01_1_Task_definition/Sections/06_Other_task_types/11_Software_decorator.html
+.. _documentation: https://compss.readthedocs.io/en/stable/Sections/02_App_Development/02_Python/01_1_Task_definition/Sections/06_Other_task_types/11_Software_decorator.html
