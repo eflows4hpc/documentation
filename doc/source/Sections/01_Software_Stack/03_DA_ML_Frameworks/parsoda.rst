@@ -59,3 +59,62 @@ It is organized in packages among which we find the followings:
 
 - All other packages contains some pre-built functions for each corresponding block of a ParSoDA application.
 
+Parsoda-PyCOMPSs integration
+============================
+ParSoDA has been ported to Python to support the use of the Python libraries ecosystem.  ParSoDA has been extended to support multiple execution runtimes. Specifically, according to the bridge design pattern, we defined the ParsodaDriver interface (i.e., the implementor of the bridge pattern) that allows a developer to implement adapters for different execution systems. A valid instance of ParsodaDriver must invoke some function that exploits some parallel pattern, such as Map, Filter, ReduceByKey and SortByKey. The SocialDataApp class is the abstraction of the bridge pattern and is designed to use these parallel patterns efficiently for running ParSoDA applications. It is worth noting that the execution flow of an application remains unchanged even by changing the execution runtime, which makes the porting of a ParSoDA application to new execution runtimes.
+
+In particular, we included four execution drivers into ParSoDA-Python:
+
+- ParsodaSingleCoreDriver, a driver that implements parallel patterns as simple sequential algorithms to be run on a single core, on the local machine. It is useful for verifying the correctness of a new ParSoDA Driver during its construction.
+
+- ParsodaMultiCoreDriver, which runs the application in parallel on multiple cores, on the local machine, using Python's thread pools.
+
+- ParsodaPySparkDriver, which runs the application on a Spark cluster. It is based on the PySpark library and requires the initialization of a SparkConf object.
+
+- ParsodaPyCompssDriver, which runs the application on a COMPSs cluster. It relies on the PyCOMPSs binding to gain access to the COMPSs runtime.
+
+Installation and use
+--------------------
+The ParSoDA library requires Python 3.8 or above.
+To install the current version of ParSoDA on a Python environment you just need to put the ParSoDA package into some directory, then it can be used in a new application that can be run on the local environment. To use ParSoDA on top of PyCOMPSs or PySpark, you need to install and correctly configure one or both these two environments. At that point the application can be run through the ParsodaPyCompssDriver or the ParsodaPySparkDriver classes. 
+The current experimental version of ParSoDA comes with two example applications, Trajectory Mining and Emoji Polarization, which requires the following python packages to be installed::
+
+    emoji==1.7.0
+    fastkml==0.12
+    geopy==2.2.0
+    shapely==1.8.1
+
+The ParSoDA package contains a file “requirements.txt” which can be used with pip to install the application requirements, executing the following command in the root directory of ParSoDA::
+
+    python3 -m pip install -r requirements.txt 
+
+The following example shows the Trajectory Mining application written with ParSoDA on Python::
+
+    driver = ParsodaPyCompssDriver()
+    
+    app = SocialDataApp("Trajectory Mining", driver, num_partitions=args.partitions, chunk_size=args.chunk_size)
+
+    app.set_crawlers([
+        LocalFileCrawler('/root/dataset/FlickrRome2017.json', FlickrParser())
+        LocalFileCrawler('/root/dataset/TwitterRome2017.json', TwitterParser())
+    ])
+    app.set_filters([
+        IsInRoI("./resources/input/RomeRoIs.kml")
+    ])
+    app.set_mapper(FindPoI("./resources/input/RomeRoIs.kml"))
+    app.set_secondary_sort_key(lambda x: x[0])
+    app.set_reducer(ReduceByTrajectories(3))
+    app.set_analyzer(GapBIDE(1, 0, 10))
+    app.set_visualizer(
+        SortGapBIDE(
+            "./resources/output/trajectory_mining.txt", 
+            'support', 
+            mode='descending', 
+            min_length=3
+        )
+    )
+
+    app.execute()
+
+
+
