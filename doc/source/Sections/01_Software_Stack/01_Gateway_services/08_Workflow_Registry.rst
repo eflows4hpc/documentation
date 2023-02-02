@@ -16,7 +16,7 @@ Workflow descriptions have to be included inside this repository according to th
     |    |    |- types.yml               TOSCA description of the different components involved in the workflow
     |    |       ...
     |    |- step_1
-    |    |    |- spack.yml               Sofware requirements for this workflow step as a Spack environment specification
+    |    |    |- spack.yml               Software requirements for this workflow step as a Spack environment specification
     |    |    |- src                     PyCOMPSs code of the workflow step
     |    |       ...
     |    |- step_2
@@ -27,8 +27,9 @@ Workflow descriptions have to be included inside this repository according to th
 
 Including new Workflows
 -----------------------
-To include new workflows in the repository, first create a new fork of the repository. Inside the forked repository, create a new directory with the name of your workflow. This directory should include the workflow description with a subfolder for the TOSCA description and the different workflow steps. Each workflow step correspond to a PyCOMPSs code which must be executed in a HPC cluster. The description of the steps shpould include the software requirements as a spack environement and the PyCOMPSs code.
+To include new workflows in the repository, first create a new fork of the repository. Inside the forked repository, create a new directory with the name of your workflow. This directory should include the workflow description with a subfolder for the TOSCA description and the different workflow steps. Each workflow step correspond to a PyCOMPSs code which must be executed in a HPC cluster. The description of the steps should include the software requirements as a spack environment_ and the PyCOMPSs code.
 
 Finally, create a pull request with the new workflow description. This pull request will be reviewed and included in the repository.
 
-.. _repository: https://github.com/eflows4hpc/workflow_registry
+.. _repository: https://github.com/eflows4hpc/workflow-registry
+.. _environment: https://spack.readthedocs.io/en/latest/environments.html

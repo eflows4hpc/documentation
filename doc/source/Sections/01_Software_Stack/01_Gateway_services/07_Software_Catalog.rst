@@ -25,7 +25,9 @@ Software descriptions have to be included inside this repository according to th
 Including new software
 ----------------------
 
-To include new  software in the repository, create a fork of the repository. Inside the packages folder create a new folder with the name of the software. This folder should contain the description of the new software including at least the spack package description and invocation description. Then, create a create pull request with the branch of the newly added software. This pull request will be reviewed an added to merge to the repository.
+To include new  software in the repository, create a fork of the repository. Inside the packages folder create a new folder with the name of the software. This folder should contain the description of the new software including at least the Spack package description_ and `Software invocation description <../../02_Programming_Interfaces/Software_Description.rst>`_. 
 
-.. _repository: https://github.com/eflows4hpc/workflow_registry
+Finally, create a create pull request with the branch of the newly added software. This pull request will be reviewed an  merged to the repository.
+
+.. _repository: https://github.com/eflows4hpc/software-catalog
 .. _description: https://spack.readthedocs.io/en/latest/packaging_guide.html
