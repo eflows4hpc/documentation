@@ -62,6 +62,7 @@ And inside the configuration file the type of execution (mpi), and its propertie
 'mpirun' command, the configuration file (**"mpi_config.json"** in this example) should look like as follows:
 
 .. code-block:: JSON
+
     {
       "execution" : {
         "type":"mpi",
@@ -116,7 +117,7 @@ Configuration file ("mpi_w_args.json"):
       },
       "epilog": {
         "binary":"tar",
-        "args":"zcvf {{out_tgz}}" {{work_dir}}
+        "args":"zcvf {{out_tgz}} {{work_dir}}"
       },
       "constraints":{
         "computing_units": 2
