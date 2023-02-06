@@ -14,6 +14,16 @@ eFlows4HPC proposes a programming interface to try to reduce the effort required
   by a framework has to be applied to be used by another framework. This
   can include transformations like transpositions, filtering or data distribution.
 
+
+.. _fig_programming_interfaces:
+.. figure:: Figures/programming_interfaces.png
+    :figwidth: 50 %
+    :alt: Interfaces to integrate HPC/DA/ML.
+    :align: center
+
+    Interfaces to integrate HPC/DA/ML.
+
+
 The proposed interface aims at declaring the different software invocations required in a workflow as simple python functions. This functions will be annotated by two decorators :
 
 - **@software** to describe the type of execution to be performed when the function
@@ -23,12 +33,12 @@ The proposed interface aims at declaring the different software invocations requ
   parameter of the invocation has to apply to be compatible with the input of expected execution.
 
 
-For this first iteration, we have defined the software invocation descriptions and
-we have extended the PyCOMPSs programming model and runtime. Next versions of the
-eFlows4HPC framework will include the definition of the data transformations and
-their implementation.
+During the first iteration, we defined the software invocation descriptions and extended the PyCOMPSs programming model and runtime.ç
+In the following version of the eFlows4HPC framework, we included the definition of the data transformations and
+their implementations.
 
 .. toctree::
     :maxdepth: 1
 
     02_Programming_Interfaces/Software_Description
+    02_Programming_Interfaces/Data_Transformation
