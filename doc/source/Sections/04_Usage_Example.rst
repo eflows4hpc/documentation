@@ -11,15 +11,16 @@ This workflow has the objective of generating a Reduced-Order Model (ROM) from t
 
 The following sections describe the different steps to implement, deploy and execute the Reduce Order Model workflow using the eFlows4HPC methodologies:
 
-  - Step 1: Implement the computational workflow integrating different computations using the eFlows4HPC programming interfaces.
-  - Step 2: Enable the HPC ready container image creation by including the workflow software requirements.
-  - Step 3: Implement data logistic pipelines to manage the movements of workflow data between  the parallel file system of HPC clusters and external data repositories.
-  - Step 4: Integrate the different workflow parts in TOSCA application
-  - Step 5: Deploy the workflow to an HPC clusters using Alien4Cloud and make it accessible to users
-  - Step 6: Configure the credentials and Execute the workflow with the HPCWaaS execution API
+  - `Step 1 <04_Usage_Example/PyCOMPSs_workflow.rst>`: Implement the computational workflow integrating different computations using the eFlows4HPC programming interfaces.
+  - `Step 2 <04_Usage_Example/Enable_Container_Image_creation.rst>`: Enable the HPC ready container image creation by including the workflow software requirements.
+  - `Step 3 <04_Usage_Example/Data_Logistics_Pipeline.rst>`: Implement data logistic pipelines to manage the movements of workflow data between  the parallel file system of HPC clusters and external data repositories.
+  - `Step 4 <04_Usage_Example/TOSCA_Description>`: Integrate the different workflow parts in TOSCA application
+  - `Step 5 <04_Usage_Example/Workflow_Deployment>`: Deploy the workflow to an HPC clusters using Alien4Cloud and make it accessible to users
+  - `Step 6 <04_Usage_Example/Workflow_Execution>`: Configure the credentials and Execute the workflow with the HPCWaaS execution API
 
 .. toctree::
    :maxdepth: 1
+   :caption: Pillar I example Steps
 
    04_Usage_Example/PyCOMPSs_workflow
    04_Usage_Example/Enable_Container_Image_creation
