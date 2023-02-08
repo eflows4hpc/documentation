@@ -69,7 +69,7 @@ And inside the configuration file the type of execution (mpi), and its propertie
         "runner": "mpirun",
         "binary":"my_mpi_app.bin",
         "processes": 2,
-        },
+        }
     }
 
 
@@ -102,14 +102,14 @@ Configuration file ("mpi_w_args.json"):
       "execution" : {
         "type":"mpi",
         "runner": "mpirun",
-        "processes" : "$MPI_PROCS"
+        "processes" : "$MPI_PROCS",
         "binary":"my_binary.bin",
         "working_dir": "{{work_dir}}",
         "args": "-d {{param_d}}"
       },
       "parameters" : {
-        "param_d": "IN"
-        "work_dir": "DIRECTORY_OUT"
+        "param_d": "IN",
+        "work_dir": "DIRECTORY_OUT",
         "out_tgz": "FILE_OUT"
       }
       "prolog": {
@@ -159,7 +159,7 @@ Configuration file ("container_config.json"):
         "args": "{{expression}} {{in_directory}} -ir"
         },
       "parameters":{
-        "in_directory": "DIRECTORY_IN"
+        "in_directory": "DIRECTORY_IN",
         "expression": "IN"
       },
       "container":{
