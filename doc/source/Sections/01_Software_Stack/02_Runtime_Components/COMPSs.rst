@@ -25,7 +25,7 @@ Some useful links for more detailed information:
 
 .. _COMPSs: http://compss.bsc.es
 .. _These sample applications: https://compss.readthedocs.io/en/stable/Sections/07_Sample_Applications/02_Python.html
-.. _`Source code`: https://github.com/bsc-wdc/compss
+.. _`Source code`: https://github.com/eflows4hpc/compss
 .. _`Installation`: https://compss.readthedocs.io/en/stable/Sections/00_Quickstart.html#install-compss
 .. _`PyCOMPSs Tutorials`: https://compss.readthedocs.io/en/stable/Sections/10_Tutorial/02_PyCOMPSs.html
 .. _`PyCOMPSs Syntax Reference`: https://compss.readthedocs.io/en/stable/Sections/02_App_Development/02_Python.html

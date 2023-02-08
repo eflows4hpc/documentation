@@ -3,15 +3,11 @@ Data Transformation
 
 The *@data_transformation* (or just *@dt*) decorator is used for the execution of a data transformation function that should be applied on a given
 ```PyCOMPSs task``` parameter. It means, by specifying the parameter name and a python function, users can assure that the parameter will go through
-transformation process by the given function before the task execution. Then the result of the data transformation function will be used in the task instead of the initial
-value of the parameter.
+transformation process by the given function before the task execution. Then the result of the data transformation function will be used in the task instead of the initial value of the parameter.
 
 
-Data transformation decorator has a simple order for the definition. The first argument of the decorator is a string name of the parameter we want to
-transform. The second argument is the data transformation function (NOT as a string, but actual reference) that expects at least one input which will
-the transformation will be applied to. If the transformation function needs more parameters, they can be added to the *@dt* definition as ```kwargs```.
-Moreover, if the user wants to use a workflow as a data transformation function and thus avoid the intermediate task creation, PyCOMPSs provides an optional
-keyword argument ```is_workflow``` to do so (by default *False*). This gives the flexibility of importing workflows from different libraries.
+Data transformation decorator has a simple order for the definition. The first argument of the decorator is a string name of the parameter we want to transform. The second argument is the data transformation function (NOT as a string, but actual reference) that expects at least one input which will the transformation will be applied to. If the transformation function needs more parameters, they can be added to the *@dt* definition as ```kwargs```.
+Moreover, if the user wants to use a workflow as a data transformation function and thus avoid the intermediate task creation, PyCOMPSs provides an optional keyword argument ```is_workflow``` to do so (by default *False*). This gives the flexibility of importing workflows from different libraries.
 
 .. code-block:: python
     :name: dt_syntax
@@ -38,36 +34,32 @@ to the given input and the output is sent to the *original* task as the input. F
 
     import numpy as np
     from pycompss.api.data_transformation import dt
-    from pycompss.api.task import task
+    from pycompss.api.software import software
     from pycompss.api.api import compss_wait_on
 
 
-    @task(returns=1)
-    def some_task():
-        a = np.arange(1000)
+    @software(config_file="simulation.json")
+    def simulation():
         ...
         return a
 
-    def dt_function(A, new_x, new_y):
-        A = A.reshape((new_x, new_y))
-        ...
-        return A
+    def reshape(A, new_x, new_y):
+        return A.reshape((new_x, new_y))
 
-    @dt("A", dt_function, new_x=10, new_y=100)
-    @software("example.json")
-    def dt_example(A):
+    @dt("input_data", reshape, new_x=10, new_y=100)
+    @software("data_analysis.json")
+    def data_analysis(input_data):
         ...
+        return result
 
     def main():
-        A = some_task()
+        A = simulation()
         result = dt_example(A)
         result = compss_wait_on(result)
         print(result)
 
 
-As we can see in the example, the result of "some_task" function is assigned to the parameter A. In the next line when "dt_example" is called, before the task execution,
-parameter A will go through the "dt_function" where "new_x" and "new_y" will be 10 and 100 respectively. Once the execution of the Data Transformation task is finished, the result
-will be passed to the "dt_example" task as input.
+As we can see in the example, the result of "simulation" function is assigned to the parameter A. In the next line when "data_analysis" is called, before the task execution, parameter A will go through the "reshape" function where "new_x" and "new_y" will be 10 and 100 respectively. Once the execution of the Data Transformation task is finished, the transformed data will be passed to the "data_analysis" as input.
 
 
 PyCOMPSs also supports inter-types data transformations which allows the conversion of the input data to another object type. For example, if the user wants to use
@@ -137,6 +129,7 @@ cases each data transformation with "is_workflow=False" will take place in a dif
     import dislib as ds
     from pycompss.api.data_transformation import *
     from pycompss.api.task import task
+    from pycompss.api.software import software
     from pycompss.api.api import compss_wait_on
 
     def load_w_dislib(file_path, blocK_size=10):
@@ -174,4 +167,3 @@ cases each data transformation with "is_workflow=False" will take place in a dif
 For more detailed information about the @dt decorator of PyCOMPSs please see the `documentation`_.
 
 .. _documentation: https://compss.readthedocs.io/en/stable/Sections/02_App_Development/02_Python/01_1_Task_definition/Sections/10_Data_Transformation.html
-
