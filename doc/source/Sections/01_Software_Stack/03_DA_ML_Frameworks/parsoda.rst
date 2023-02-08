@@ -77,7 +77,7 @@ Source Code
 -----------
 The code of ParSoDA-Python library is available `here`_.
 
-.. _here: https://github.com/SCAlabUnical/ParSoDA-PyCOMPSs
+.. _here: https://github.com/eflows4hpc/parsoda
 
 Installation and use
 --------------------
