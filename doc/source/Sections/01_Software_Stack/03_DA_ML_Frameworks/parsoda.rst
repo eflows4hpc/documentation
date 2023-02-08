@@ -73,6 +73,12 @@ In particular, we included four execution drivers into ParSoDA-Python:
 
 - ParsodaPyCompssDriver, which runs the application on a COMPSs cluster. It relies on the PyCOMPSs binding to gain access to the COMPSs runtime.
 
+Source Code
+-----------
+The code of ParSoDA-Python library is available `here`_.
+
+.. _here: https://github.com/eflows4hpc/parsoda
+
 Installation and use
 ````````````````````
 The ParSoDA library requires Python 3.8 or above.
