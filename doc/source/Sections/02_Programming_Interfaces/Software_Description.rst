@@ -51,11 +51,11 @@ decorator on top of the function, and provide a 'config_file' parameter where th
     from pycompss.api.task import task
 
     @software(config_file="mpi_config.json")
-    def task_python_mpi():
+    def mpi_execution():
          pass
 
     def main():
-        task_python_mpi()
+        mpi_execution()
 
 
 And inside the configuration file the type of execution (mpi), and its properties are set. For example, if the user wants to run an MPI job with two processes using
@@ -67,22 +67,17 @@ And inside the configuration file the type of execution (mpi), and its propertie
       "execution" : {
         "type":"mpi",
         "runner": "mpirun",
-        "binary":"my_executable.bin",
+        "binary":"my_mpi_app.bin",
         "processes": 2,
-        "working_dir": "/tmp/"
         },
-      "parameters" : {
-        "returns" : 1
-      }
     }
 
 
-It is also possible to refer to task parameters from the configuration file. Properties such as `working_dir` and `args` ('args' strings are command
-line arguments to be passed to the 'binary') can contain this kind of references. In this case, the task parameters should be surrounded by curly braces. For example, in the
-following example, 'work_dir' and 'param_d' parameters of the python task are used in the 'working_dir' and 'args' strings respectively. Moreover, epilog and prolog definitions, as well as
+It is also possible to refer to task parameters and environment variables from the configuration file. Properties such as `working_dir` and `args` ('args' strings are command line arguments to be passed to the 'binary') can contain this kind of references. In this case, the task parameters should be surrounded by curly braces. For example, in the
+following example, 'work_dir' and 'param_d' parameters of the python task are used in the 'working_dir' and 'args' strings respectively. An the number of MPI processes are got form an environment variable. Moreover, epilog and prolog definitions, as well as
 the number of computing units is added as a constraint, to indicate that every MPI process will have this requirement (run with 2 threads):
 
-Task definition:
+Task definition and invocation:
 
 .. code-block:: python
 
@@ -90,13 +85,13 @@ Task definition:
     from pycompss.api.task import task
 
     @software(config_file="mpi_w_args.json")
-    def task_mpi_w_args(work_dir, param_d, out_tgz):
+    def mpi_with_args(work_dir, param_d, out_tgz):
          pass
 
     def main():
     working_dir = "/tmp/mpi_working_dir/"
     arg_value = 1001
-    task_mpi_w_args(working_dir, ar_value)
+    mpi_with_args(working_dir, ar_value, "output.tgz")
 
 
 Configuration file ("mpi_w_args.json"):
@@ -107,10 +102,16 @@ Configuration file ("mpi_w_args.json"):
       "execution" : {
         "type":"mpi",
         "runner": "mpirun",
+        "processes" : "$MPI_PROCS"
         "binary":"my_binary.bin",
         "working_dir": "{{work_dir}}",
         "args": "-d {{param_d}}"
-        },
+      },
+      "parameters" : {
+        "param_d": "IN"
+        "work_dir": "DIRECTORY_OUT"
+        "out_tgz": "FILE_OUT"
+      }
       "prolog": {
         "binary": "mkdir",
         "args": "{{work_dir}}"
@@ -122,6 +123,7 @@ Configuration file ("mpi_w_args.json"):
       "constraints":{
         "computing_units": 2
       }
+
     }
 
 
@@ -158,10 +160,11 @@ Configuration file ("container_config.json"):
         },
       "parameters":{
         "in_directory": "DIRECTORY_IN"
+        "expression": "IN"
       },
       "container":{
         "engine": "DOCKER",
-        "image": "compss/compss"
+        "image": "ubuntu:20.04"
       }
     }
 

@@ -29,6 +29,6 @@ Some useful links for more detailed information:
 
 .. _Distributed Computing Library: https://dislib.bsc.es/
 .. _PyCOMPSs: https://www.bsc.es/research-and-development/software-and-apps/software-list/comp-superscalar/
-.. _Source code: https://github.com/bsc-wdc/dislib
+.. _Source code: https://github.com/eflows4hpc/dislib
 .. _Installation: https://dislib.readthedocs.io/en/stable/quickstart.html#quickstart-guide
 .. _Tutorial: https://compss.readthedocs.io/en/stable/Sections/10_Tutorial/07_Dislib.html
