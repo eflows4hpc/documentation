@@ -54,7 +54,7 @@ to the given input and the output is sent to the *original* task as the input. F
 
     def main():
         A = simulation()
-        result = dt_example(A)
+        result = data_analysis(A)
         result = compss_wait_on(result)
         print(result)
 
