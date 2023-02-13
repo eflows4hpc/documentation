@@ -2,7 +2,7 @@
 Software Stack
 ===============================
 
-eFlows4HPC software stack integrates different components to provide an overall workflow management system. :numref:`fig_stack_by_functionality` shows the components included in the eFlows4HPC Software Stack according to their functionality. On the top, we  can find the programming models used for the definition of the complex workflows that combine HPC, HPDA and ML frameworks and the integration of large volumes of data from different sources and locations. Below this part, we can find the components to facilitate the accessibility and re-usability of workflows, Finally in the bottom part of the stack we can see the different components for deployment, execution and data management. Components in gray refer to components to be developed or integrated in the stack in the future releases.
+The eFlows4HPC software stack integrates different components to provide an overall workflow management system. :numref:`fig_stack_by_functionality` shows the components included in the eFlows4HPC Software Stack according to their functionality. On the top, we  can find the programming models used for the definition of the complex workflows that combine HPC, HPDA and ML frameworks and the integration of large volumes of data from different sources and locations. Below this part, we can find the components to facilitate the accessibility and re-usability of workflows. Finally, in the bottom part of the stack, we can see the different components for deployment, execution and data management. Components in gray refer to components to be developed or integrated in the stack in the future releases.
 
 .. Comment: Once D1.1 is available on-line, we could add a link to the deliverable
 

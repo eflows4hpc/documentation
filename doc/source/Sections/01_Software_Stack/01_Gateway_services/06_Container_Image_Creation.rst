@@ -57,7 +57,7 @@ The Container Image Creation service offers a REST API to manage the creation of
 
 Trigger an image creation
 `````````````````````````
-This API endpoint allows the *end-user* to trigger the image creation with HTTP POST request. This request must include the description of the machine indicationg the system platform, processor architecture and the supported container engine. Optionally, it can be also include the MPI version and GPU runtime version if the image require access to MPI and GPU fabrics. 
+This API endpoint allows the *end-user* to trigger the image creation with HTTP POST request. This request must include the description of the machine indicationg the system platform, processor architecture and the supported container engine. Optionally, it can also include the MPI version and GPU runtime version if the image require access to MPI and GPU fabrics.
 
 **Request**
 
@@ -92,7 +92,7 @@ This API endpoint allows the *end-user* to trigger the image creation with HTTP 
 
 Check status of an image creation
 `````````````````````````````````
-This API endpoint allows the *end-user* to check the status of an the image creation
+This API endpoint allows the *end-user* to check the status of an image creation.
 
 **Request**
 
@@ -118,7 +118,7 @@ This API endpoint allows the *end-user* to check the status of an the image crea
 
 Download image
 ``````````````
-This API endpoint allows the *end-user* to download the created image
+This API endpoint allows the *end-user* to download the created image.
 
 **Request**
 
@@ -138,14 +138,14 @@ This API endpoint allows the *end-user* to download the created image
 Client
 ------
 
-A simple BASH client has been implemented in ``cic_cli``. This is the usage of this client
+A simple BASH client has been implemented in ``cic_cli``. This is the usage of this client.
 
 .. code:: bash
 
   cic_cli <user> <passwd> <image_creation_service_url> <"build"|"status"|"download"> <json_file|build_id|image_name>
 
 
-The following lines show an example of the different commands
+The following lines show an example of the different commands.
 
 .. code:: bash
 
