@@ -12,20 +12,20 @@ Software descriptions have to be included inside this repository according to th
   software-catalog
     |- packages
     |    |- software_1
-    |    |    |- package.py		Installation description following the Spack package format
-    |    |    |- invocation.json          Description of the software invocation
+    |    |    |- package.py		    # Installation description following the Spack package format
+    |    |    |- invocation.json  # Description of the software invocation
     |    |       ...
     |    |- software_2
     |          ....
-    |- cfg				Spack configuration used by the Image Creation Service
+    |- cfg				     # Spack configuration used by the Image Creation Service
     |
-    |- repo.yaml				Spack description of for this repository
+    |- repo.yaml			 # Spack description of this repository
 
 
 Including new software
 ----------------------
 
-To include new  software in the repository, create a fork of the repository. Inside the packages folder create a new folder with the name of the software. This folder should contain the description of the new software including at least the Spack package description_ and `Software invocation description <../../02_Programming_Interfaces/Software_Description.rst>`_. 
+To include new  software in the repository, create a fork of the repository. Inside the packages folder create a new folder with the name of the software. This folder should contain the description of the new software including at least the Spack package description_ and `Software invocation description <../../02_Programming_Interfaces/Software_Description.rst>`_.
 
 Finally, create a create pull request with the branch of the newly added software. This pull request will be reviewed an  merged to the repository.
 

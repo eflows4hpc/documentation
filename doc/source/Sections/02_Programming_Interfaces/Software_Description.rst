@@ -6,37 +6,39 @@ The definition is composed of a decorator and a configuration file with the nece
 
 Software decorator
 ------------------
-@software decorator is used to indicate that a certain python function represents the invocation of and external HPC or DA programs in a single workflow.
-When a function with the `@software` decorator is called, an (external) program is executed respecting the configuration defined in its configuration file.
-The goal of this decorator is to describe the execution of external programs included in a workflow from simple binary executable to complex MPI applications.
+@software decorator is used to indicate that a certain Python function represents the invocation of and external HPC or DA programs in a single workflow.
+When a function with the `@software` decorator is called, an (external) program is executed keeping the configuration defined in its configuration file untouched.
+The goal of this decorator is to support the execution of external programs in a workflow, from simple binary executable to complex MPI applications.
 
 
 Configuration File
 ------------------
-Configuration files can contain different key-values depending on the user's needs. Details of the configuration of the software
+Configuration files can contain different key-values depending on the user's needs. We use JSON format for the configuration files and the next table provides details of some of the supported keys:
+
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | Key                          | Description                                                                                                                                             |
+    +==============================+=========================================================================================================================================================+
+    | **execution**                | (Mandatory) Contains all the software execution details such as "type", "binary", "args", etc..                                                         |
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | **execution.type**           | (Mandatory) Type of the software invocation. Supported values are 'task', 'workflow', 'mpi', 'binary', 'mpmd_mpi', 'multinode', 'http', and 'compss'.   |
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | **parameters**               | A dictionary containing *task* parameters.                                                                                                              |
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | **prolog**                   | A dictionary containing *prolog* parameters.                                                                                                            |
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | **epilog**                   | A dictionary containing *epilog* parameters.                                                                                                            |
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | **constraints**              | Parameters regarding constraints of the software execution.                                                                                             |
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | **container**                | Container parameters if the external software is meant to be executed inside a container.                                                               |
+    +------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+
+
+Details of the configuration of the software
 execution can be defined in the value of the "execution" key. There the user can define the "type" of the execution and other
 necessary configuration parameters the *software* requires.
-
-Next table provides details of some of the supported keys in software configuration files:
-
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | Key                    | Description                                                                                                                                                        |
-    +========================+====================================================================================================================================================================+
-    | **execution**          | (Mandatory) Contains all the software execution details such as "type", "binary", "args", etc..                                                                    |
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | **execution.type**     | (Mandatory) Type of the software invocation. Supported values are 'task', 'workflow', 'mpi', 'binary', 'mpmd_mpi', 'multinode', 'http', and 'compss'.              |
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | **parameters**         | A dictionary containing *task* parameters.                                                                                                                         |
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | **prolog**             | A dictionary containing *epilog* parameters.                                                                                                                       |
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | **epilog**             | A dictionary containing *prolog* parameters.                                                                                                                       |
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | **constraints**        | Parameters regarding constraints of the software execution.                                                                                                        |
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-    | **container**          | Container parameters if the external software is meant to be executed inside a container.                                                                          |
-    +------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
 
 
 Examples
@@ -58,7 +60,7 @@ decorator on top of the function, and provide a 'config_file' parameter where th
         mpi_execution()
 
 
-And inside the configuration file the type of execution (mpi), and its properties are set. For example, if the user wants to run an MPI job with two processes using
+And inside the configuration file the type of execution (mpi), and its properties are set. For example, if the user wants to run an MPI job with eight processes using
 'mpirun' command, the configuration file (**"mpi_config.json"** in this example) should look like as follows:
 
 .. code-block:: JSON
@@ -68,13 +70,13 @@ And inside the configuration file the type of execution (mpi), and its propertie
         "type":"mpi",
         "runner": "mpirun",
         "binary":"my_mpi_app.bin",
-        "processes": 2,
+        "processes": 8,
         }
     }
 
 
-It is also possible to refer to task parameters and environment variables from the configuration file. Properties such as `working_dir` and `args` ('args' strings are command line arguments to be passed to the 'binary') can contain this kind of references. In this case, the task parameters should be surrounded by curly braces. For example, in the
-following example, 'work_dir' and 'param_d' parameters of the python task are used in the 'working_dir' and 'args' strings respectively. An the number of MPI processes are got form an environment variable. Moreover, epilog and prolog definitions, as well as
+It is also possible to refer to task parameters and environment variables from the configuration file. Properties such as `working_dir` and `args` ('args' strings are command line arguments to be passed to the 'binary') can contain this type of references. In this case, the task parameters should be surrounded by curly braces. For example, in the
+following example, 'work_dir' and 'param_d' parameters of the Python task are used in the 'working_dir' and 'args' strings respectively. An the number of MPI processes are obtained from the environment variable "MPI_PROCS". Moreover, epilog and prolog definitions, as well as
 the number of computing units is added as a constraint, to indicate that every MPI process will have this requirement (run with 2 threads):
 
 Task definition and invocation:

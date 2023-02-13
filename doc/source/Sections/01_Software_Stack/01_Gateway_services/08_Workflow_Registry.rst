@@ -1,7 +1,7 @@
 Workflow Registry
 ===================
 
-The Workflow Registry is a git repository to store the Workflow descriptions using the eFlows4HPC methodology. This description consist of at least the TOSCA description of the worklfow, the code of the their different steps and their required software per step. The eFlows4HPC Workflow Registry can be found in this repository_.
+The Workflow Registry is a git repository that stores the Workflow descriptions using the eFlows4HPC methodology. This description consist of at least the TOSCA description of the worklfow, the code of the their different steps and their required software per step. The eFlows4HPC Workflow Registry can be found in this repository_.
 
 
 Repository structure
@@ -13,11 +13,11 @@ Workflow descriptions have to be included inside this repository according to th
   workflow-registry
     |- workflow_1
     |    |- tosca
-    |    |    |- types.yml               TOSCA description of the different components involved in the workflow
+    |    |    |- types.yml         # TOSCA description of the different components involved in the workflow
     |    |       ...
     |    |- step_1
-    |    |    |- spack.yml               Software requirements for this workflow step as a Spack environment specification
-    |    |    |- src                     PyCOMPSs code of the workflow step
+    |    |    |- spack.yml         # Software requirements for this workflow step as a Spack environment specification
+    |    |    |- src               # PyCOMPSs code of the workflow step
     |    |       ...
     |    |- step_2
     |         ....
