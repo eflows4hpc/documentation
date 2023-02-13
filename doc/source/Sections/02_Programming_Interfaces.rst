@@ -3,7 +3,8 @@ Programming Interfaces for integrating HPC and DA/ML workflows
 
 The evolution of High-Performance Computing (HPC) platforms enables the design and execution of progressively more complex and larger workflow applications in these systems. The complexity comes not only from the number of elements that compose a workflow but also from the type of computations performed. While traditional HPC workflows include simulations and modelling tasks, current needs require in addition Data Analytic (DA) and artificial intelligence (AI) tasks.
 
-However, the development of these workflows is hampered by the lack of proper programming models and environments that support the integration of HPC, DA, and AI. Each of these workflow phases is developed using dedicated frameworks for the specific problem to solve. However, to implement the overall workflow, developers have to deal with programming large glue code to integrate the execution of the different frameworks executions in a single workflow.
+However, the development of these workflows is hampered by the lack of proper programming models and environments that support the integration of HPC, DA, and AI.
+Each of these workflow phases is developed using dedicated frameworks for the specific problem to solve. Nevertheless, to implement the overall workflow, developers have to deal with programming large glue code to integrate the execution of the different frameworks executions in a single workflow.
 
 .. _fig_programming_interfaces:
 .. figure:: Figures/programming_interfaces.png
@@ -23,15 +24,16 @@ As we can see in :numref:`fig_programming_interfaces`, when we have to include  
   by a framework has to be applied to be used by another framework. This
   can include transformations like transpositions, filtering or data distribution.
 
-The proposed interface aims at declaring the different software invocations required in a workflow as simple python functions. This functions will be annotated by two decorators :
+The proposed interface aims at declaring the different software invocations required in a workflow as simple python functions. These functions will be annotated by two decorators :
 
 - **@software** to describe the type of execution to be performed when the function
   is invoked from the main code
 
-- **@data_transformation** to indicate the required data transformations that a
-  parameter of the invocation has to apply to be compatible with the input of expected execution.
+- **@data_transformation** to indicate the required data transformations that needs to be applied to a parameter of the invocation
+to be compatible with the input of expected execution.
 
-:numref:`overview_code` shows an overview of how the programming interfaces are used to implement a workflow. These decorators are declared on top of a python function which represents the execution of the software we want to integrate into the workflow. Then, the execution of the software can be included in a workflow as a call of a standard Python method, and the runtime will convert this call to the remote invocation of the described software and the implicit data transformations.
+:numref:`overview_code` shows an overview of how the programming interfaces are used to implement a workflow. These decorators are declared on top of a
+Python function which represents the execution of the software we want to integrate into the workflow. Then, the execution of the software can be included in a workflow as a call of a standard Python method, and the runtime will convert this call to the remote invocation of the described software and the implicit data transformations.
 
 .. code-block:: python
     :name: overview_code
@@ -48,7 +50,7 @@ The proposed interface aims at declaring the different software invocations requ
     ml_training(analysis_result, ml_model)
 
 
-During the first iteration, we defined the software invocation descriptions and extended the PyCOMPSs programming model and runtime.ç
+During the first project iteration, we defined the software invocation descriptions and extended the PyCOMPSs programming model and runtime.
 In the second iteration of the eFlows4HPC framework, we have included the definition of the data transformations and
 their implementations.
 
