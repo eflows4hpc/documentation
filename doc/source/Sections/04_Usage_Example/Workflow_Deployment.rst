@@ -12,7 +12,8 @@ the application to the HPCWaaS API for end-user access.
 Create an application from a Topology Template
 ----------------------------------------------
 
-To create an application from a topology template, log in to Alien4Cloud and navigate to the ``Applications`` tab. Click on the
+:numref:`fig__ex_alien_create_app` shows how to create an application from a topology template.
+Log in to Alien4Cloud and navigate to the ``Applications`` tab. Click on the
 ``New Application`` button, provide a unique name for the application, and then switch to the ``Topology Template`` tab under the
 ``Initialize topology from`` section. Select the desired topology template and click the ``Create`` button.
 
@@ -27,8 +28,9 @@ To create an application from a topology template, log in to Alien4Cloud and nav
 Configure the application before deployment
 -------------------------------------------
 
-To prepare for deployment, navigate to the ``Environment`` section under ``Work on an Environment``. Then click on ``Prepare next deployment``
-and select the proposed location.
+To prepare for deployment, navigate to the ``Environment`` section under ``Work on an Environment`` (see :numref:`fig__ex_alien_select_env`).
+Then click on ``Prepare next deployment`` (see :numref:`fig__ex_alien_prepare_next_dep`)
+and select the proposed location (see :numref:`fig__ex_alien_select_loc`).
 
 
 .. _fig__ex_alien_select_env:
@@ -59,7 +61,7 @@ and select the proposed location.
 
 Under the ``Topology`` tab, you can examine the TOSCA topology created from the template and make any necessary modifications.
 In most cases, this step is not required as the topology is designed to be configurable through defined ``inputs``.
-Access the ``Inputs`` tab and fill all necessary inputs. Note that the information bubble provides additional input description.
+Access the ``Inputs`` tab and fill all necessary inputs (see :numref:`fig__ex_alien_depl_inputs`). Note that the information bubble provides additional input description.
 
 .. _fig__ex_alien_depl_inputs:
 .. figure:: ../Figures/AlienDepInputs.png
@@ -72,7 +74,7 @@ Access the ``Inputs`` tab and fill all necessary inputs. Note that the informati
 It is important to understand that these inputs are fixed properties that will be selected prior to deployment and cannot be altered
 for a specific workflow execution. To do this workflows can be defined with their own specific inputs.
 
-Next, under the ``Matching`` tab, you should match abstract TOSCA components to their concrete implementations.
+Next, under the ``Matching`` tab (see :numref:`fig__ex_alien_matching`), you should match abstract TOSCA components to their concrete implementations.
 This enables the definition of reusable topologies and facilitates their adaptation to target specific HPC clusters, such as the login
 node address or the PyCOMPSs modules to be loaded for job execution.
 To do this, click on the ``Nodes matching`` tab and expand the ``AbstractEnvironment`` node.
@@ -91,7 +93,7 @@ Finally, select the desired concrete implementation for the execution environmen
 Deploy an application
 ---------------------
 
-To finalize the deployment process, navigate to the ``Review and deploy`` tab. Carefully review the configurations made in previous sections and,
+To finalize the deployment process, navigate to the ``Review and deploy`` tab (see :numref:`fig__ex_alien_deploy_app`). Carefully review the configurations made in previous sections and,
 if satisfactory, click the ``Deploy`` button.
 
 .. _fig__ex_alien_deploy_app:
@@ -103,8 +105,10 @@ if satisfactory, click the ``Deploy`` button.
     Deploy application
 
 
-You will be automatically redirected to the ``Manage current deployment`` tab. Here, you can monitor the progress of the deployment.
-For more comprehensive insights, you may access the ``Workflow`` or ``Logs`` tabs.
+You will be automatically redirected to the ``Manage current deployment`` tab (see :numref:`fig__ex_alien_deploy`).
+Here, you can monitor the progress of the deployment.
+For more comprehensive insights, you may access the ``Workflow`` (see :numref:`fig__ex_alien_deploy_workflow_view`)
+or ``Logs`` (see :numref:`fig__ex_alien_deploy_logs_view`) tabs.
 
 .. _fig__ex_alien_deploy:
 .. figure:: ../Figures/AlienDeploy.png
@@ -138,7 +142,8 @@ Test a workflow directly from Alien4Cloud
 
 As a workflow developer, it is advisable to perform testing of the workflow prior to making it available to end-users.
 This can be achieved directly within Alien4Cloud without the need for additional tools.
-To initiate the testing process, navigate to the ``Workflow`` tab and select the desired execution workflow from the dropdown menu.
+To initiate the testing process, navigate to the ``Workflow`` tab and select the desired execution workflow from the dropdown menu
+(see :numref:`fig__ex_alien_test_wf`).
 Next, provide the necessary inputs for the workflow and initiate the launch by clicking on the ``Launch`` button.
 
 
@@ -156,7 +161,8 @@ by accessing the Manage current deployment tab and monitoring its progress throu
 Expose a workflow to the HPCWaaS API
 ------------------------------------
 
-To expose your application to the HPCWaaS API, navigate to the main page of your application by clicking on its name in the top left corner.
+To expose your application to the HPCWaaS API, navigate to the main page of your application by clicking on its name in the top left corner
+(see :numref:`fig__ex_alien_back_app`).
 
 .. _fig__ex_alien_back_app:
 .. figure:: ../Figures/AlienBackApp.png
@@ -166,7 +172,7 @@ To expose your application to the HPCWaaS API, navigate to the main page of your
 
     Back to application's main page
 
-Utilize the ``Tags`` section to configure the interaction between your application and the HPCWaaS API.
+Utilize the ``Tags`` section to configure the interaction between your application and the HPCWaaS API  (see :numref:`fig__ex_alien_set_tags`).
 The following tags are recognized by the HPCWaaS API:
 
 * ``hpcwaas-workflows`` represents a list of comma-separated workflows names from your application that should be made available to the API.
