@@ -1,5 +1,5 @@
-Implementing Data Logistics Pipeline
-====================================
+Implementing a Data Logistics Pipeline
+======================================
 
 Data movements in the eFlows4HPC Workflow-as-a-Service are orchestrated by the Data Logistics Service and defined as Airflow Pipelines. The pipelines are formally Direct Acyclic Graphs (DAGs) and are defined programmatically using Python.
 
@@ -10,7 +10,7 @@ The following is a brief introduction to Data Logistics Pipelines using the eFlo
 DAG Definition: HTTP-based transfer
 -----------------------------------
 
-The stage-in of the data in Pillar I is fairly straightforward. The source of the data is B2DROP repository that provides HTTP access. The destination is an HPC system accessed via SSH.
+The stage-in of the data in Pillar I is fairly straightforward. The source of the data is a B2DROP repository that provides HTTP access. The destination is an HPC system accessed via SSH.
 
 ::
 
@@ -37,7 +37,7 @@ The stage-in of the data in Pillar I is fairly straightforward. The source of th
         a_id = setup_task.output['return_value']
         cleanup_task = PythonOperator(python_callable=remove, op_kwargs={'conn_id': a_id}, task_id='cleanup')
 
-        setup_task >> stream_upload(connection_id=a_id) >> setup_task >> stream_upload(connection_id=a_id) >> cleanup_task
+        setup_task >> stream_upload(connection_id=a_id) >> cleanup_task
 
     dag = plainhttp2ssh()
 
@@ -48,7 +48,7 @@ The DAG is defined as a Python annotated function ``plainhttp2ssh``. The submeth
 
 Data Movement Tasks 
 -------------------
-The workflow includes following data movements:
+The workflow includes the following data movements:
 
 - download from B2DROP repository,
 
@@ -97,7 +97,7 @@ After the successful stage-in of the data, a computation step follows. The compu
     dag = transfer_image()
 
 
-This pipeline is almost identical with the previous one as the images are download from the eFlows4HPC image service which provides HTTP-based access and uploaded to the target location using SSH. The only difference is the use of the ``image_id`` parameter instead of the full ``url`` as in the previous example.
+This pipeline is almost identical to the previous one as the images are downloaded from the eFlows4HPC image service which provides HTTP-based access and uploaded to the target location using SSH. The only difference is the use of the ``image_id`` parameter instead of the full ``url`` as in the previous example.
 
 Final remarks
 ---------------
