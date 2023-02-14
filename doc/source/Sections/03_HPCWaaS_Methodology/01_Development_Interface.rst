@@ -102,7 +102,7 @@ Make your workflow available to end-users using the HPCWaaS API
 
 In order for the HPCWaaS API to know which workflow to allow users to use, you should add a specific tag to your Alien4Cloud application.
 Move to your application main panel and under the ``Tags`` section add a tag named ``hpcwaas-workflows``  as shown in :numref:`fig_alien4cloud_application_panel`.
-The tag value should be a coma-separated list of workflow names that could be called through the HPCWaaS API.
+The tag value should be a comma-separated list of workflow names that could be called through the HPCWaaS API.
 In the minimal workflow example, this tag value should be ``exec_job``.
 
 .. _fig_alien4cloud_application_panel:

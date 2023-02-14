@@ -322,7 +322,7 @@ PyCOMPSs TOSCA component
 The source code of this component is available in the
 `pycompss-yorc-plugin github repository <https://github.com/eflows4hpc/pycompss-yorc-plugin/tree/main/tosca/alien>`_ in the eFlows4HPC organization.
 
-This component is different from the above ones as it does not have an implementation is pure TOSCA.
+This component is different from the above ones as it does not have an implementation in pure TOSCA.
 Instead the implementation is done by a plugin directly shipped with the Yorc orchestrator.
 This allows to handle more complex use-cases like interacting with workflows inputs.
 
