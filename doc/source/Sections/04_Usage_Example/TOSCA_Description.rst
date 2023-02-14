@@ -12,6 +12,11 @@ To support this use case, we have defined the following TOSCA components:
   * PyCOMPSs execution TOSCA component to launch and monitor PyCOMPSs jobs.
   * Environment TOSCA component to hold properties of an HPC cluster.
 
+In following sections you will find a detailed description of each of these components and their configurable properties.
+Section :numref:`section_usage_example_tosca_topology_template` describes how these components are assembled together in a
+TOSCA topology template to implement the ROM Pillar I use case. More specifically you can refer to :numref:`tosca-topo-template`
+to see how properties of the TOSCA components are used in this particular context.
+
 Image Creation Service TOSCA component
 --------------------------------------
 
@@ -112,7 +117,7 @@ with properties specific to a given pipeline.
 Other DLS TOSCA components extend it by adding or overriding some properties.
 
 
-:numref:`tosca-dls-type.yaml` is a simplified (for the sake of clarity) version of the TOSCA type definition of the
+:numref:`tosca-dls-type.yaml` is a simplified version of the TOSCA type definition of the
 Data Logistics Service that shows the configurable properties that can be set for these components. We removed components that are
 note used in the Pillar I use case.
 
@@ -260,7 +265,11 @@ note used in the Pillar I use case.
 
 * ``dls.ansible.nodes.DLSDAGRun`` is the parent TOSCA component with the following properties:
 
-  * ``dls_api_url``, ``dls_api_username`` and ``dls_api_password`` are used to connect to the Airflow REST API
+  * ``dls_api_url``, ``dls_api_username`` and ``dls_api_password`` are used to connect to the Airflow REST API.
+    *  ``dls_api_url`` could be overridden by the ``dls_api_url`` attribute of a
+       ``eflows4hpc.env.nodes.AbstractEnvironment`` if components are linked together
+    * ``dls_api_username`` and ``dls_api_password`` can be provided as plain text for testing purpose but the recommended
+      way to provide it is to use the ``get_secret`` TOSCA function as shown in :numref:`tosca-topo-template`
   * ``dag_id`` is the unique identifier of the DLS pipeline to run
   * ``extra_conf`` is a map of key/value properties to be used as input parameters for the DLS pipeline
   * ``debug`` will print additional information in Alien4Cloud's logs, some sensible information like passwords could be reveled in these logs, this should be used for debug purpose only
@@ -319,7 +328,7 @@ This allows to handle more complex use-cases like interacting with workflows inp
 
 That said a TOSCA component should still be defined to configure how the plugin will run the PyCOMPSs job.
 
-:numref:`tosca-pycompss-type.yaml` is a simplified (for the sake of clarity) version of the TOSCA type definition of the
+:numref:`tosca-pycompss-type.yaml` is a simplified version of the TOSCA type definition of the
 PyCOMPSs execution that shows the configurable properties that can be set for this component.
 
 .. code-block:: yaml
@@ -477,7 +486,7 @@ This components holds properties of an HPC cluster. It is an abstract TOSCA comp
 when designing the application and can be matched to a concrete type just before the deployment.
 This is a powerful tool combined with Alien4Cloud's services that allows to define concrete types for abstract components.
 
-:numref:`tosca-environment-type.yaml` is a simplified (for the sake of clarity) version of the TOSCA type definition of the
+:numref:`tosca-environment-type.yaml` is a simplified version of the TOSCA type definition of the
 Environment that shows attributes of this component.
 
 .. code-block:: yaml
@@ -501,7 +510,7 @@ Environment that shows attributes of this component.
 * ``pycompss_modules`` a coma-separated list of PyCOMPSs modules installed on this cluster and that should be loaded by PyCOMPSs
 * ``dls_api_url`` the URL of the Data Logistics Service API
 
-
+.. _section_usage_example_tosca_topology_template:
 ROM Pillar I topology template
 ------------------------------
 
@@ -511,12 +520,19 @@ The source code of this template is available in the
 This topology template composes the different components described above into
 a TOSCA application that allows to implement the ROM Pillar I workflow.
 
+The ROM Pillar I workflow is composed of two phases. First at deployment time the Image Creation Service is invoked to generate a container image
+containing the required softwares, this image is then transferred to the target HPC cluster using the Data Logistic Service
+(the ``DLSDAGImageTransfer`` TOSCA component). Once deployed the execution workflow can be invoked as many time as required.
+This execution workflow consists in transferring input data from an HTTP server to the HPC cluster thanks to the DLS
+(the ``HTTP2SSH`` TOSCA component), then run a PyCOMPSs job on those data (the ``PyCOMPSJob`` TOSCA component) and finally upload computation
+results to an EUDAT repository using the DLS (the ``DLSDAGStageOutData`` TOSCA component).
+
 :numref:`tosca-topo-template` shows how are defined the components and how they are connected together in order to run in sequence.
 :numref:`fig_alien4cloud_minimal_workflow_topology` shows the same topology in a graphical way.
 
 .. code-block:: yaml
     :name: tosca-topo-template
-    :caption: Extract of the TOSCA topology template for the minimal workflow
+    :caption: Extract of the TOSCA topology template for ROM Pillar I workflow
 
     topology_template:
       inputs:
