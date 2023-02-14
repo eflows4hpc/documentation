@@ -1,3 +1,4 @@
+.. _section_usage_example:
 ====================
 Step-by-step Example
 ====================

@@ -9,13 +9,16 @@ Alien4Cloud & Yorc
 
 Please refer to the documentation of the Alien4Cloud & Yorc project for more information.
 
-An instance of Alien4Cloud and Yorc is available on Juelich cloud, ask to the project to obtain access
+Two instances of Alien4Cloud and Yorc are deployed for the eFlows4HPC project.
+One is hosted on Juelich cloud, this instance is used for testing and integration of the software stack.
+The second instance is hosted on BSC cloud and is used to develop pillars use cases.
+Ask to the project (eflows4hpc@bsc.es) to obtain access.
 
 Importing required components into Alien4Cloud
 ##############################################
 
 Some TOSCA components and topology templates need to be imported into Alien4Cloud.
-If you are using the instance on Juelich cloud, this is already done and you can move to the next paragraph.
+If you are using one of the instances deployed for the eFlows4HPC project this is already done and you can move to the next paragraph.
 
 You should first move to the ``Catalog`` tab and then the ``Manage archives`` tab, finally click on ``Git import`` to add components
 as shown in :numref:`fig_alien4cloud_catalog`.
@@ -99,7 +102,7 @@ Make your workflow available to end-users using the HPCWaaS API
 
 In order for the HPCWaaS API to know which workflow to allow users to use, you should add a specific tag to your Alien4Cloud application.
 Move to your application main panel and under the ``Tags`` section add a tag named ``hpcwaas-workflows``  as shown in :numref:`fig_alien4cloud_application_panel`.
-The tag value should be a coma-separated list of workflow names that could be called through the HPC HPCWaaS API.
+The tag value should be a coma-separated list of workflow names that could be called through the HPCWaaS API.
 In the minimal workflow example, this tag value should be ``exec_job``.
 
 .. _fig_alien4cloud_application_panel:
