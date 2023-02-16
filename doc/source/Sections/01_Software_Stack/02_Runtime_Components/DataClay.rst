@@ -4,9 +4,8 @@ dataClay
 `dataClay`_ is a distributed object store with active capabilities. It is designed to hide distribution details while taking advantage of the underlying infrastructure, be it an HPC cluster or a highly distributed environment such as edge-to-cloud. 
 Objects in dataClay are enriched with semantics, giving them a structure as well as the possibility to attach arbitrary user code to them. In this way, dataClay enables applications to store and access objects in the same format they have in memory (Python or Java objects), also allowing them to execute object methods within the store to exploit data locality. This active capability minimizes data transfers, as only the results of the computation are transferred to the application, instead of the whole object.
 
-dataClay implements the Storage Runtime Interface that `PyCOMPSs`_ can use to enhance data locality of parallalel and distributed 
-applications. This implementation hints the runtime scheduler to assign tasks that access data managed by dataClay to the nodes containing 
-that data, and allows to avoid the cost of serializing this data when it is accessed from several tasks.
+dataClay implements the Storage Runtime Interface that `PyCOMPSs`_ can use to enhance data locality of parallel and distributed 
+applications. This implementation hints the runtime scheduler to assign tasks on the same nodes where dataClay stores the needed data, and allows to avoid the cost of serializing this data when it is accessed from several tasks.
 
 Some useful links for more detailed information:
 
