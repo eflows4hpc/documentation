@@ -13,7 +13,7 @@ To support this use case, we have defined the following TOSCA components:
   * Environment TOSCA component to hold properties of an HPC cluster.
 
 In following sections you will find a detailed description of each of these components and their configurable properties.
-Section :numref:`section_usage_example_tosca_topology_template` describes how these components are assembled together in a
+Section :ref:`section_usage_example_tosca_topology_template` describes how these components are assembled together in a
 TOSCA topology template to implement the ROM Pillar I use case. More specifically you can refer to :numref:`tosca-topo-template`
 to see how properties of the TOSCA components are used in this particular context.
 
@@ -511,6 +511,7 @@ Environment that shows attributes of this component.
 * ``dls_api_url`` the URL of the Data Logistics Service API
 
 .. _section_usage_example_tosca_topology_template:
+
 ROM Pillar I topology template
 ------------------------------
 
@@ -818,6 +819,7 @@ results to an EUDAT repository using the DLS (the ``DLSDAGStageOutData`` TOSCA c
 
 
 .. _fig_alien4cloud_minimal_workflow_topology:
+
 .. figure:: ../Figures/rom_pillar_I_tosca_topology.png
     :figwidth: 75 %
     :alt: Alien4Cloud ROM Pillar I topology
