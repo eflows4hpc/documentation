@@ -9,8 +9,7 @@ the code at runtime into the proper code, according to the backing storage used 
 The current implementation of Hecuba implements this interface for Python and C/C++ applications that store data in memory or `Apache Cassandra`_. 
 
 Hecuba also implements the Storage Runtime Interface that `PyCOMPSs`_ can use to enhance data locality of parallalel and distributed 
-applications. This implementation hints the runtime scheduler to assign tasks that access data managed by Hecuba to the nodes containing 
-that data, and allows to avoid the cost of serializing this data when it is accessed from several tasks.
+applications. This implementation hints the runtime scheduler to assign tasks that access Hecuba-managed data to the nodes that contain that data, and allows to avoid the cost of serializing this data when it is accessed from several tasks.
 
 Some useful links for more detailed information:
 
