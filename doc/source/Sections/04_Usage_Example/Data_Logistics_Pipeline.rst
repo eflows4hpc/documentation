@@ -46,6 +46,7 @@ The stage-in of the data in Pillar I is fairly straightforward. The source of th
 The DAG is defined as a Python annotated function ``plainhttp2ssh``. The submethods (only one in this case) are annotated with ``@task`` are Operators, finally the dependencies between tasks are defined with help of ``>>`` operator.
 
 
+
 Data Movement Tasks 
 -------------------
 The workflow includes the following data movements:
@@ -99,6 +100,7 @@ After the successful stage-in of the data, a computation step follows. The compu
 
 This pipeline is almost identical to the previous one as the images are downloaded from the eFlows4HPC image service which provides HTTP-based access and uploaded to the target location using SSH. The only difference is the use of the ``image_id`` parameter instead of the full ``url`` as in the previous example.
 
+
 Final remarks
 ---------------
 Please review the examples in the repository_ to gain understanding how the data movements are realized. There are examples of upload/download to remote repository, streaming, accessing storages through SCP/SFTP or HTTP.
@@ -108,6 +110,26 @@ The repository also includes a set of tests and mocked tests to verify the corre
 For local testing, you can use airflow standalone setup. Please refer to Airflow documentation_ for more information.
 
 If you intend to use eFlows4HPC resources accessed via SSH, reuse ``setup_task`` and ``cleanup_task``.
+
+The data movements are part of the overall workflow and are executed via the TOSCA descriptions (see :ref:`dlstosca` for more details). For testing purposes, however, you can start the pipelines directly either via the Airflow UI or via API calls. 
+
+:: 
+
+        curl -X POST -u airflowuser:airflowpass \
+                -H "Content-Type: application/json" \  
+                --data '{"conf": {"image_id": "wordcount_skylake.sif", "target": "/tmp/", "host": "sshhost", "login": "sshlogin", "vault_id": "youruserid"}}' \
+                https://datalogistics.eflows4hpc.eu/api/v1/image_transfer/dagRuns
+
+
+If you don't have credentials registered in vault (or are using local standalone Airflow) you can provide ssh credentials in the API call:
+
+::
+
+         curl -X POST -u airflowuser:airflowpass \
+                -H "Content-Type: application/json" \
+                --data '{"conf": {"image_id": "wordcount_skylake.sif", "target": "/tmp/", "host": "sshhost", "login": "sshlogin", "key": "sshkey"}}' \
+                http://localhost:5001/api/v1/image_transfer/dagRuns
+
 
 
 .. _repository: https://github.com/eflows4hpc/dls-dags
