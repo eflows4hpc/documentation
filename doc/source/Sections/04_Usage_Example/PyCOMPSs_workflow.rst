@@ -1,8 +1,8 @@
 Implementation of the Reduced Order Model Computation
 =====================================================
-PyCOMPSs is a task-based programming model which allows developers to define parallel workflows as simple sequential python scripts. To implement a PyCOMPSs application, developers have to identify what parts of an application are the candidates to be a task. They are usually python methods with a certain computation granularity (larger than hundreds of milliseconds) that can potentially run concurrently with other parts of the application. Those methods have to be annotated with the `@task` decorator to indicate the directionality of the parameters. Based on the task definitions, the runtime is able to detect dependencies between task invocations and infer the inherent parallelism of a python script.
+PyCOMPSs is a task-based programming model which allows developers to define parallel workflows as simple sequential python scripts. To implement a PyCOMPSs application, developers have to identify what parts of an application are the candidates to be a task. They are usually Python methods with a certain computation granularity (larger than hundreds of milliseconds) that can potentially run concurrently with other parts of the application. Those methods have to be annotated with the `@task` decorator and indicate the directionality of the parameters. Based on the task definitions, the runtime is able to detect dependencies between task invocations and infer the inherent parallelism of a Python script.
 
-PyCOMPSs has been extended in eFlows4HPC, with two new decorators (`@software` and `@dt`) to facilitate the integration of different kinds of computations in PyCOMPSs workflow and facilitating their reuse in other workflows. This section will show how this methodology is applied in the case of the Reduced Order Model (ROM) computation. More details about how to use these decorators in other cases are available at the `Programming Interfaces <../02_Programming_Interfaces.rst>`_ section.
+PyCOMPSs has been extended in eFlows4HPC, with two new decorators (`@software` and `@dt`) to facilitate the integration of different kinds of computations in a PyCOMPSs workflow and facilitating their reuse in other workflows. This section will show how this methodology is applied in the case of the Reduced Order Model (ROM) workflow. More details about how to use these decorators in other cases are available at the `Programming Interfaces <../02_Programming_Interfaces.rst>`_ section.
 
 
 .. _fig_ROM_overview:
@@ -42,7 +42,7 @@ PyCOMPSs has been extended in eFlows4HPC, with two new decorators (`@software` a
         compare_ROM_vs_FOM(rom_results, sim_results)
 
 
-:numref:`FOM_code` and :numref:`FOM_json` shows a code snippet about how the FOM simulation has been implemented with PyCOMPSs. On top of the function which includes the Kratos Multiphysics calls we have included `@software` decorator to indicate the function is a Kratos FOM invocation described by the fom.json file stored in the Software Catalog. This description indicates that it will be executed as a task, consuming the number of cores indicated by $KRATOS_CUS environment variable.
+:numref:`FOM_code` and :numref:`FOM_json` shows a code snippet about how the FOM simulation has been implemented with PyCOMPSs. On top of the function which includes the Kratos Multiphysics calls we have included `@software` decorator to indicate the function is a Kratos FOM invocation described by the fom.json file stored in the Software Catalog. This description indicates that it will be executed as a task, consuming the number of cores indicated by `$KRATOS_CUS` environment variable.
 
 .. code-block:: python
     :name: FOM_code
@@ -66,7 +66,7 @@ PyCOMPSs has been extended in eFlows4HPC, with two new decorators (`@software` a
 
 .. code-block:: json
     :name: FOM_json
-    :caption:  Definition of FOM simulation.
+    :caption:  Definition of FOM simulation(fom.json).
 
     {
         "execution" : {
@@ -83,7 +83,7 @@ PyCOMPSs has been extended in eFlows4HPC, with two new decorators (`@software` a
         }
     }
 
-In the case of the randomized SVD, the code snippet can be found in :numref:`rSVD_code` and :numref:`dislib_json`. On top of the function which includes the dislib calls, we have included the `@dt` and `@software` decorators. On one side, the `@software` decorator indicates the function is a dislib code whose execution is described in the dislib.json file stored in the Software Catalog. This description indicates that it will be treated as a PyCOMPS workflow. On the other side, the `@dt` decorator indicates the transformation required to the `blocks` to the ds-array used by dislib as implemented in the `load_blocks_rechunk` function.
+In the case of the randomized SVD, the code snippet and configuration file can be found in :numref:`rSVD_code` and :numref:`dislib_json`. On top of the function which includes the dislib calls, we have included the `@dt` and `@software` decorators. On one side, the `@software` decorator indicates the function is a dislib code whose execution is described in the dislib.json file stored in the Software Catalog. This description indicates that it will be treated as a PyCOMPS workflow. On the other side, the `@dt` decorator indicates the transformation required to the `blocks` to the ds-array used by dislib as implemented in the `load_blocks_rechunk` function.
 
 .. code-block:: python
     :name: rSVD_code
@@ -123,10 +123,8 @@ Following the same procedure as above, we have defined the ROM simulations as de
         load_ROM(rom)
         current_model = KratosMultiphysics.Model()
         model.Load("ModelSerialization",current_model)
-        del(model)
         current_parameters = KratosMultiphysics.Parameters()
         parameters.Load("ParametersSerialization",current_parameters)
-        del(parameters)
         # get sample
         simulation = RunROM_SavingData(current_model,current_parameters,sample)
         simulation.Run()

@@ -12,10 +12,13 @@ To support this use case, we have defined the following TOSCA components:
   * PyCOMPSs execution TOSCA component to launch and monitor PyCOMPSs jobs.
   * Environment TOSCA component to hold properties of an HPC cluster.
 
+
 In following sections you will find a detailed description of each of these components and their configurable properties.
 Section :ref:`section_usage_example_tosca_topology_template` describes how these components are assembled together in a
 TOSCA topology template to implement the ROM Pillar I use case. More specifically you can refer to :numref:`tosca-topo-template`
 to see how properties of the TOSCA components are used in this particular context.
+
+.. _cictosca:
 
 Image Creation Service TOSCA component
 --------------------------------------
@@ -269,18 +272,15 @@ note used in the Pillar I use case.
 * ``dls.ansible.nodes.DLSDAGRun`` is the parent TOSCA component with the following properties:
 
   * ``dls_api_url``, ``dls_api_username`` and ``dls_api_password`` are used to connect to the Airflow REST API.
-    *  ``dls_api_url`` could be overridden by the ``dls_api_url`` attribute of a
-       ``eflows4hpc.env.nodes.AbstractEnvironment`` if components are linked together
-    * ``dls_api_username`` and ``dls_api_password`` can be provided as plain text for testing purpose but the recommended
-      way to provide it is to use the ``get_secret`` TOSCA function as shown in :numref:`tosca-topo-template`
+  
+    *  ``dls_api_url`` could be overridden by the ``dls_api_url`` attribute of a ``eflows4hpc.env.nodes.AbstractEnvironment`` if components are linked together
+    * ``dls_api_username`` and ``dls_api_password`` can be provided as plain text for testing purpose but the recommended way to provide it is to use the ``get_secret`` TOSCA function as shown in :numref:`tosca-topo-template`
+
   * ``dag_id`` is the unique identifier of the DLS pipeline to run
   * ``extra_conf`` is a map of key/value properties to be used as input parameters for the DLS pipeline
   * ``debug`` will print additional information in Alien4Cloud's logs, some sensible information like passwords could be reveled in these logs, this should be used for debug purpose only
   * ``user_id`` and ``vault_id`` are credentials to be used connect to the HPC cluster for data transfer
-  * ``run_in_standard_mode`` this property controls in which TOSCA workflows this component interacts with the DLS by setting this property
-    to ``true`` this components will be run in the ``standard`` mode meaning at the application deployment time.
-    This is an advanced feature and the default value should fit most of the needs and it is overridden in derived TOSCA
-    components if needed.
+  * ``run_in_standard_mode`` this property controls in which TOSCA workflows this component interacts with the DLS by setting this property to ``true`` this components will be run in the ``standard`` mode meaning at the application deployment time. This is an advanced feature and the default value should fit most of the needs and it is overridden in derived TOSCA components if needed.
 
 * ``dls.ansible.nodes.HTTP2SSH`` is a TOSCA component that allows to trigger a pipeline that will download a file and copy it to a cluster through SSH
 
@@ -829,4 +829,3 @@ results to an EUDAT repository using the DLS (the ``DLSDAGStageOutData`` TOSCA c
     :align: center
 
     Alien4Cloud ROM Pillar I topology
-

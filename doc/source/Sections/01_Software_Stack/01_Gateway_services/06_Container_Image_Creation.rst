@@ -57,7 +57,7 @@ The Container Image Creation service offers a REST API to manage the creation of
 
 Trigger an image creation
 `````````````````````````
-This API endpoint allows the *end-user* to trigger the image creation with HTTP POST request. This request must include the description of the machine indicationg the system platform, processor architecture and the supported container engine. Optionally, it can also include the MPI version and GPU runtime version if the image require access to MPI and GPU fabrics.
+This API endpoint allows the *end-user* to trigger the image creation with HTTP POST request. This request must include the description of the machine, indicating the system platform, processor architecture and the supported container engine. Optionally, it can also include the MPI version and GPU runtime version if the image requires access to MPI and GPU fabrics.
 
 **Request**
 

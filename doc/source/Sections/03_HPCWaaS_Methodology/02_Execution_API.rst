@@ -32,6 +32,6 @@ You can then `trigger a workflow execution <https://github.com/eflows4hpc/hpcwaa
 
 And finally `monitor the workflow execution <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#monitor-a-workflow-execution>`_.
 
-For a more detailed usage please refer to :numref:`section_usage_example`.
+For a more detailed usage please refer to :ref:`section-usage-example`.
 
 .. _documentation: https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md
