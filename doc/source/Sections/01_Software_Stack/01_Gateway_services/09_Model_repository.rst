@@ -23,7 +23,7 @@ and download the models for reuse.
 The service is based on MLflow_ open source software. The project specific extensions can be found 
 in the project repository_.
 
-There is an instance of the model repository service hosted in HDF could which can be accessed_.
+There is an instance of the model repository service hosted in Julich HDF could which can be accessed_.
 
 
 
@@ -32,4 +32,4 @@ There is an instance of the model repository service hosted in HDF could which c
 .. _dagrepo: https://github.com/eflows4hpc/dls-dags
 .. _examples: https://github.com/eflows4hpc/model-repository/tree/main/notebooks
 .. _documentation: https://mlflow.org/docs/latest/index.html
-.. _accessed: https://zam10017.zam.kfa-juelich.de/#/experiments/0
+.. _accessed: https://modelrepository.eflows4hpc.eu
