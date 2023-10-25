@@ -26,6 +26,8 @@ or to install in a *Conda* environment:
 
     conda install -c conda-forge pyophidia
 
+The PyOphidia documentation (Installation, usage, examples and tutorial) can be found `here <https://pyophidia.readthedocs.io/en/latest/>`_.
+
 Usage
 -----
 
