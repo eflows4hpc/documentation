@@ -13,9 +13,9 @@ Some useful links for more detailed information:
 
 2. Examples: https://github.com/bsc-dom/dataclay-demos
 
-3. User manual (see Chapter 7 for installation instructions): https://www.bsc.es/research-and-development/software-and-apps/software-list/dataclay/documentation
+3. Documentation: https://dataclay.readthedocs.io
 
-4. Docker Hub repository: https://hub.docker.com/u/bscdataclay/
+4. Container registry: https://github.com/bsc-dom/dataclay/pkgs/container/dataclay
 
 
 
