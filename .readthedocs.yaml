@@ -20,6 +20,6 @@ formats:
   - pdf
 
 # Python details
-python:
-  install:
-    - requirements: doc/requirements.txt
+# python:
+#  install:
+#    - requirements: doc/requirements.txt
