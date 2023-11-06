@@ -47,7 +47,7 @@ The DAG is defined as a Python annotated function ``plainhttp2ssh``. The submeth
 
 
 
-Data Movement Tasks 
+Data Movement Tasks
 -------------------
 The workflow includes the following data movements:
 
@@ -65,8 +65,10 @@ The credentials required to access storages are passed to the DAG through extern
 is provided with ``connection_id`` that is dynamically created for the particular data transfer.
 
 
-DAG Definition: Singularity image upload
-----------------------------------------
+.. _section-image-transfer:
+
+DAG Definition: Singularity image transfer
+------------------------------------------
 After the successful stage-in of the data, a computation step follows. The computations in Pillar I workflow are performed using Singularity containers. This requires a Singularity image to be present on the target machine. The HPC nodes usually don't have Internet access, thus the image needs to be uploaded to the right place before the computation happens. The following code shows how such a transfer can be performed.
 
 ::
@@ -105,18 +107,18 @@ Final remarks
 ---------------
 Please review the examples in the repository_ to gain understanding how the data movements are realized. There are examples of upload/download to remote repository, streaming, accessing storages through SCP/SFTP or HTTP.
 
-The repository also includes a set of tests and mocked tests to verify the correctness of the pipelines. 
+The repository also includes a set of tests and mocked tests to verify the correctness of the pipelines.
 
 For local testing, you can use airflow standalone setup. Please refer to Airflow documentation_ for more information.
 
 If you intend to use eFlows4HPC resources accessed via SSH, reuse ``setup_task`` and ``cleanup_task``.
 
-The data movements are part of the overall workflow and are executed via the TOSCA descriptions (see :ref:`dlstosca` for more details). For testing purposes, however, you can start the pipelines directly either via the Airflow UI or via API calls. 
+The data movements are part of the overall workflow and are executed via the TOSCA descriptions (see :ref:`dlstosca` for more details). For testing purposes, however, you can start the pipelines directly either via the Airflow UI or via API calls.
 
-:: 
+::
 
         curl -X POST -u airflowuser:airflowpass \
-                -H "Content-Type: application/json" \  
+                -H "Content-Type: application/json" \
                 --data '{"conf": {"image_id": "wordcount_skylake.sif", "target": "/tmp/", "host": "sshhost", "login": "sshlogin", "vault_id": "youruserid"}}' \
                 https://datalogistics.eflows4hpc.eu/api/v1/image_transfer/dagRuns
 
@@ -133,4 +135,4 @@ If you don't have credentials registered in vault (or are using local standalone
 
 
 .. _repository: https://github.com/eflows4hpc/dls-dags
-.. _documentation: https://airflow.apache.org 
+.. _documentation: https://airflow.apache.org

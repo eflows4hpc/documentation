@@ -7,18 +7,18 @@ The eFlows4HPC software stack integrates different components to provide an over
 .. Comment: Once D1.1 is available on-line, we could add a link to the deliverable
 
 .. _fig_stack_by_functionality:
-.. figure:: 01_Software_Stack/Figures/current_release_y2.png
+.. figure:: 01_Software_Stack/Figures/current_release_y3.png
     :figwidth: 50 %
     :alt: Software Stack by functionality
     :align: center
 
     Software Stack release overview.
 
-The different components of the stack can be also are grouped according to their deployment and usage as depicted in :numref:`fig_stack_by_deployment`. The Gateway Services are the components which are deployed outside the computing interface which are used to provide the HPC Workflow as a Service capabilities (Alien4Cloud and Execution API), orchestrate the deployment, execution and data movement of the overall workflow (Ystia Orchestrator and Data Logistics Service).
+The different components of the stack can be also are grouped according to their deployment and usage as depicted in :numref:`fig_stack_by_deployment`. The Gateway Services are the components which are deployed outside the computing interface which are used to provide the HPC Workflow as a Service capabilities (Alien4Cloud and Execution API), orchestrate the deployment, execution and data movement of the overall workflow (Ystia Orchestrator and Data Logistics Service). These services can use two services to interact with HPC clusters the SSH/SCP protocols or the Unicore midelware services.
 The Runtime components are deployed in the computing infrastructure to perform the parallel execution and data management of the workflow inside the assigned computing nodes. Finally, the HPDA/ML Frameworks are the software components which are used inside the workflows to implement the Machine Learning and Data Analytic algorithms.
 
 .. _fig_stack_by_deployment:
-.. figure:: 01_Software_Stack/Figures/software_deployment_y2.png
+.. figure:: 01_Software_Stack/Figures/software_deployment_y3.png
     :figwidth: 40 %
     :alt: Software Stack by deployment
     :align: center
