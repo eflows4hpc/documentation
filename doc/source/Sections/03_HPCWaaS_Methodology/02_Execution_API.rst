@@ -1,18 +1,24 @@
 Execution API
 =============
 
-The execution API is still under active development and is subject to changes.
-Please refer to the repository documentation_ for a detailed description of the current status of the different
-endpoints of this API.
+The HPCWaaS execution API can be accessed directly through its HTTP interface with tools like ``curl`` or any programming language. The different endpoints of the API
+are described in the repository documentation_.
 
-A Command Line Interface (CLI) allows to interact with the service. It is available as a container.
-Please refer to the help of the ``ghcr.io/eflows4hpc/hpcwaas-api:main-cli`` container to know how to run it.
+A Command Line Interface (CLI) is also available to interact with the service. Visit the `HPCWaaS API release page on GitHub <https://github.com/eflows4hpc/hpcwaas-api/releases>`_ to download a binary version of
+the ``waas`` CLI that is compatible with your computer.
 
-.. code:: bash
+Alternatively, a Docker image (ghcr.io/eflows4hpc/hpcwaas-api:main-cli) containing the CLI can also be obtained.
+To utilize the Docker image, the following command can be executed in the terminal:
 
-    docker run ghcr.io/eflows4hpc/hpcwaas-api:main-cli --help
+.. code-block:: bash
 
-The API can also be accessed directly through its HTTP interface with tools like ``curl`` or any programming language.
+    docker run -ti --rm ghcr.io/eflows4hpc/hpcwaas-api:main-cli help
+
+This is equivalent to executing:
+
+.. code-block:: bash
+
+    ./waas help
 
 There are running instances of this API on both Juelich and BSC clouds, ask to the team (eflows4hpc@bsc.es) for an access to the API.
 
@@ -32,6 +38,6 @@ You can then `trigger a workflow execution <https://github.com/eflows4hpc/hpcwaa
 
 And finally `monitor the workflow execution <https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md#monitor-a-workflow-execution>`_.
 
-For a more detailed usage please refer to :ref:`section-usage-example`.
+For a more detailed usage please refer to :ref:`section_workflow_execution`.
 
 .. _documentation: https://github.com/eflows4hpc/hpcwaas-api/blob/main/docs/rest-api.md

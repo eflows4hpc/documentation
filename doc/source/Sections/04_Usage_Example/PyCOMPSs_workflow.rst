@@ -151,4 +151,4 @@ Following the same procedure as above, we have defined the ROM simulations as de
         np.save('relative_error_rom.npy', final)
 
 
-All this code has been stored in the `Workflow Reposirory <https://github.com/eflows4hpc/workflow-registry/tree/main/rom_pillar_I/reduce_order_model/src>`_ as indicated in `this section <../01_Software_Stack/01_Gateway_services/08_Workflow_Registry.rst>`_.
+All this code has been stored in the `Workflow Reposirory <https://github.com/eflows4hpc/workflow-registry/tree/pillarI_dt/rom_pillar_I/reduce_order_model/src>`_ as indicated in `this section <../01_Software_Stack/01_Gateway_services/08_Workflow_Registry.rst>`_.

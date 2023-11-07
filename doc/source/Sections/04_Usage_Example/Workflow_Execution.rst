@@ -1,3 +1,5 @@
+.. _section_workflow_execution:
+
 Credentials setup and Workflow Execution
 ========================================
 
@@ -94,4 +96,3 @@ You may cancel a workflow execution that is currently in progress by utilizing t
 .. code-block:: bash
 
     ./waas --api_url <api_url> -u <user>:<password> executions cancel <Execution_ID>
-
