@@ -2,7 +2,7 @@
 
 Online documentation: <https://eflows4hpc.readthedocs.io/>
 
-This repository provides the sources and build scripts for the on-line documentation of the eFlows4HPC Software Stack.
+This repository provides the source files and build scripts for the on-line documentation of the eFlows4HPC Software Stack.
 
 Follow the next steps to build the documentation pages in your current machine.
 
