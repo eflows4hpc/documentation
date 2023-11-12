@@ -27,6 +27,14 @@ The following sections describe the different steps to implement, deploy and exe
   - `Step 5 <04_Usage_Example/Workflow_Deployment.rst>`_: Deploy the workflow to an HPC clusters using Alien4Cloud and make it accessible to users
   - `Step 6 <04_Usage_Example/Workflow_Execution.rst>`_: Configure the credentials and Execute the workflow with the HPCWaaS execution API
 
+This video shows how the eFlows4HPC HPCWaaS tools are used to import, deploy and execute the ROM workflow
+
+.. youtube:: FOfz9TvT31E
+
+If you want to see another example, the folloing video show how eFlows4HPC has been used for the Probabilistic Tsunami Forecast workflow.
+
+.. youtube:: MWBk81EV4CI
+
 .. toctree::
    :maxdepth: 1
    :caption: Pillar I Example Steps:
