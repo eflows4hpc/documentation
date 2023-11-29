@@ -66,7 +66,7 @@ In particular, we included four execution drivers into ParSoDA-Python:
 
 - ParsodaSingleCoreDriver, a driver that implements parallel patterns as simple sequential algorithms to be run on a single core, on the local machine. It is useful for verifying the correctness of a new ParSoDA Driver during its construction.
 
-- ParsodaMultiCoreDriver, which runs the application in parallel on multiple cores, on the local machine, using Python's thread pools.
+- ParsodaMultiCoreDriver, which runs the application in parallel on multiple cores, on the local machine, using Python multiprocessing package.
 
 - ParsodaPySparkDriver, which runs the application on a Spark cluster. It is based on the PySpark library and requires the initialization of a SparkConf object.
 
@@ -81,8 +81,19 @@ The code of ParSoDA-Py library is available in this `repository`_.
 Installation and use of ParSoDA-Py
 ----------------------------------
 The ParSoDA library requires Python 3.8 or above.
-To install the current version of ParSoDA on a Python environment you just need to put the ParSoDA package into some directory, then it can be used in a new application that can be run on the local environment. To use ParSoDA on top of PyCOMPSs or PySpark, you need to install and correctly configure one or both these two environments. At that point the application can be run through the ParsodaPyCompssDriver or the ParsodaPySparkDriver classes.
-The current experimental version of ParSoDA comes with two example applications, Trajectory Mining and Emoji Polarization, which requires the following python packages to be installed::
+
+To install the current version of ParSoDA on a Python environment 
+you just need to put the ParSoDA package into some directory,
+then it can be used in a new application that can be run on the 
+local environment. 
+
+To use ParSoDA on top of PyCOMPSs or PySpark, 
+you need to install and correctly configure one or both these two 
+environments. At that point the application can be run through the 
+ParsodaPyCompssDriver or the ParsodaPySparkDriver classes.
+The current experimental version of ParSoDA comes with two example
+applications, Trajectory Mining and Sentiment Analysis, which
+requires the following python packages to be installed::
 
     emoji==1.7.0
     fastkml==0.12
@@ -93,7 +104,35 @@ The ParSoDA package contains a file “requirements.txt” which can be used wit
 
     python3 -m pip install -r requirements.txt
 
-The following example shows the Trajectory Mining application written with ParSoDA on Python::
+Installing ParSoDA-Py through pip
+---------------------------------
+ParSoDA can be installed by pip through the setup.py script. You just need to change current directory to the root of this repository
+
+    cd <ParSoDA repo root directory>
+
+and run
+
+    pip3 install .
+
+Docker containers
+-----------------
+For testing or developing ParSoDA-Py library and applications, a Docker container can be created from the Dockerfile included into the repository.
+In order to build the Docker image, run the following command in the root of the ParSoDA-Py repository:
+
+    docker build . -t "<your image name>"
+
+Then, you can create the development container by setting up the following docker stack::
+
+    version: '3'
+    services:
+        parsoda:
+            image: <your image name>
+            restart: unless-stopped
+
+ParSoDA-Py on top of PyCOMPSs
+-----------------------------
+
+The following example shows the Trajectory Mining application written with ParSoDA-Py, running on the PyCOMPSs environment::
 
     driver = ParsodaPyCompssDriver()
 
@@ -120,3 +159,4 @@ The following example shows the Trajectory Mining application written with ParSo
     )
 
     app.execute()
+
