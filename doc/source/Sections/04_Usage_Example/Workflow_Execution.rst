@@ -25,6 +25,19 @@ This is equivalent to executing:
 
     ./waas help
 
+SSO authentication
+------------------
+
+The `waas` CLI uses Unity for authentication. For each request, the user needs to provide a valid access token. This token can be retrieved by logging in (in a browser) to the `/auth/login` endpoint of your HPCWaaS server.
+You can then use this token to launch `waas` commands. For example:
+
+.. code-block:: bash
+
+    ./waas -t=<access_token> workfows list
+
+It is also possible to pass this token by setting a `HW_ACCESS_TOKEN` environment variable or by adding `access_token: <access_token>` to your `wass` config file.  
+  
+For more information on how to generate and use access tokens, please refer to the HPCWaaS documentation.
 
 Setup your credentials
 ----------------------
@@ -36,7 +49,7 @@ The public key and key ID are returned upon successful key pair generation and s
 
 .. code-block:: bash
 
-    $ ./waas --api_url <api_url> -u <user>:<password> ssh_keys key-gen
+    $ ./waas --api_url <api_url> -t=<access_token> ssh_keys key-gen
     INFO: Below is your newly generated SSH public key.
     INFO: Take note of it as you will not see it again.
     INFO: You are responsible for adding it to the authorized_keys file on the systems you want to run your workflows.
@@ -52,7 +65,7 @@ List available workflows
 
 .. code-block:: bash
 
-    ./waas --api_url <api_url> -u <user>:<password> workflows list
+    ./waas --api_url <api_url> -t=<access_token> workflows list
 
 
 The above command lists the workflows accessible to you. Take note of the workflow ID of the desired workflow for the next step.
@@ -66,7 +79,7 @@ Then, execute the following command to trigger the workflow execution:
 
 .. code-block:: bash
 
-    ./waas --api_url <api_url> -u <user>:<password> workflows trigger -f \
+    ./waas --api_url <api_url> -t=<access_token> workflows trigger -f \
         -i input1Name=input1Value -i input2Name=input2Value \
         <workflow_id>
 
@@ -82,7 +95,7 @@ returned by the ``trigger`` command. The syntax for this command is as follows:
 
 .. code-block:: bash
 
-    ./waas --api_url <api_url> -u <user>:<password> executions status <Execution_ID>
+    ./waas --api_url <api_url> -t=<access_token> executions status <Execution_ID>
 
 
 It is to be noted that the ``execution status`` command also has its own ``-f`` flag, which can be used for continuously
@@ -95,4 +108,4 @@ You may cancel a workflow execution that is currently in progress by utilizing t
 
 .. code-block:: bash
 
-    ./waas --api_url <api_url> -u <user>:<password> executions cancel <Execution_ID>
+    ./waas --api_url <api_url> -t=<access_token> executions cancel <Execution_ID>
