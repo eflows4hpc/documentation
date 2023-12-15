@@ -35,7 +35,7 @@ You can then use this token to launch `waas` commands. For example:
 
     ./waas -t=<access_token> workfows list
 
-It is also possible to pass this token by setting a `HW_ACCESS_TOKEN` environment variable or by adding `access_token: <access_token>` to your `wass` config file.  
+It is also possible to pass this token by setting a `HW_ACCESS_TOKEN` environment variable or by adding `access_token: <access_token>` to your `waas` config file.  
   
 For more information on how to generate and use access tokens, please refer to the HPCWaaS documentation.
 
