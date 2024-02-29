@@ -4,7 +4,10 @@
 Step-by-step Example
 ====================
 
-This chapter provides a step-by-step guide about how developers and final users can implement, deploy and execute a workflow using the eFlows4HPC Methodologies. To illustrate it, we will use one of the workflows implemented during the first period of the project.
+This chapter provides a step-by-step guide about how developers and final users can implement, deploy and execute a workflow using the eFlows4HPC HPC Workflow as a Service methodologies. The following video provide an overview of the required steps to port a workflows to the eFlows4HPC software stack. To illustrate it, we use the Pillar I workflow implemented during the first period of the project. Next sections provide a description of the workflow and a detailed description of the different steps.
+
+.. youtube:: 2nCUjHoA3s0
+        :align: center
 
 Pillar I: Reduced Order Model workflow
 --------------------------------------
@@ -30,10 +33,12 @@ The following sections describe the different steps to implement, deploy and exe
 This video shows how the eFlows4HPC HPCWaaS tools are used to import, deploy and execute the ROM workflow
 
 .. youtube:: FOfz9TvT31E
+        :align: center
 
 If you want to see another example, the folloing video show how eFlows4HPC has been used for the Probabilistic Tsunami Forecast workflow.
 
 .. youtube:: MWBk81EV4CI
+        :align: center
 
 .. toctree::
    :maxdepth: 1
